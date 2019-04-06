@@ -14,12 +14,12 @@ vmBAIN implements a virtual machine which emulates a microprocessor instruction 
 
 	All training data must be separated in right hand side / left hand Side (rhs/lhs) assertions: 
 	
-	```javascript
+```javascript
 	var training_set = { 
 		lhs : { num : 0, times : `*`, num : 0 }, 
 		rhs : { product : 0 } 
 	}
-	```
+```
 	
 	The engine first attempts 
 
@@ -31,15 +31,15 @@ vmBAIN implements a virtual machine which emulates a microprocessor instruction 
 
 ### EXAMPLE
 
-	```javascript
+```javascript
 	let engine = new __VMBAIN__( [ training_set ] ) 
 	let result = engine.exec( [ set ] ) //[ {...}, ...]//
 	console.log( result[0] ) //{...}//
-	```
+```
 
 ### EXAMPLE
 
-	```javascript
+```javascript
 	let tt000 = { 
 		lhs : { num : 0, times : `*`, num : 0 }, 
 		rhs : { product : 0 } }
@@ -60,11 +60,11 @@ vmBAIN implements a virtual machine which emulates a microprocessor instruction 
 	let tt_unk = { num : 120, times : `*`, num : 120 }
 	let result = engine.exec( [ tt_unk ] ) 
 	console.log( result[0] ) //{ product : 14400 }//
-	```
+```
 
 ### EXAMPLE
 
-	```javascript
+```javascript
 	let tt000 = { 
 		lhs : { product : 0 }, 
 		rhs : { num : 0, times : `*`, num : 0 } }
@@ -85,5 +85,5 @@ vmBAIN implements a virtual machine which emulates a microprocessor instruction 
 	let tt_unk = { product : 1440 }
 	let result = engine.exec( [ tt_unk ],`converge` ) //multiple solutions, converge on first answer//
 	console.log( result[0].json ) //{ num : 120, times : `*`, num : 12 }//
-	```
+```
 

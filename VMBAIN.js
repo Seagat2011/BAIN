@@ -14,12 +14,12 @@ DESCRIPTION
 	Virtual Machine Based Artificial Intelligence Network
 
 USAGE
-	let engine = new __VMBAIN__( [ {json training data...} ],[ {desired json output...} ]) 
-	let result = engine.exec( [ {json training data...} ] ) // [ {...}, ...]
+	let engine = new __VMBAIN__( [ {json training set...} ] ]) 
+	let result = engine.exec( [ {json training set...} ] ) // [ {...}, ...]
 	console.log( result[0] ) // [ {desired json output...} ] //
 
 NOTES
-	All training data must be separated in right hand side / left hand Side (rhs/lhs) assertions: 
+	All training sets must be separated in right hand side / left hand Side (rhs/lhs) assertions: 
 	
 	var training_set = { 
 		lhs : { num : 0, times : `*`, num : 0 }, 
@@ -31,13 +31,13 @@ NOTES
 		- Arithmetic match
 		- Boolean match
 
-	...on the training data; if these methods fail, then a more powerful algorithmic combination is attempted
+	...on the training set; if these methods fail, then a more powerful algorithmic combination is attempted
 	through analysis of the virtual Core's Program Status Word Register flags (PSW)
 
 EXAMPLE
 	let engine = new __VMBAIN__( [ training_set ] ) 
-	let result = engine.exec( [ set ] ) //[ {...}, ...]//
-	console.log( result[0] ) //{...}//
+	let result = engine.exec( [ { num : 0, times : `*`, num : 0 } ] ) //[ {...}, ...]//
+	console.log( result[0] ) //{ product : 0 }//
 
 EXAMPLE
 	let tt000 = { 
@@ -51,7 +51,7 @@ EXAMPLE
 		rhs:{ product : 0 } }
 	.
 	.
-	let tt000 = { 
+	let tt144 = { 
 		lhs:{ num : 12, times : `*`, num : 12 }, 
 		rhs:{ product : 144 } }	
 	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
@@ -73,15 +73,15 @@ EXAMPLE
 		rhs:{ num : 0, times : `*`, num : 2 } }
 	.
 	.
-	let tt000 = { 
+	let tt144 = { 
 		lhs:{ product : 144 }, 
 		rhs:{ num : 12, times : `*`, num : 12 } }	
 	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
 	.
 	.
 	let tt_unk = { product:1440 }
-	let result = engine.exec( [ tt_unk ],`converge` ) //multiple solutions, converge on first answer//
-	console.log( result[0].json ) //{ num:120, times:`*`, num:12 }//
+	let result = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
+	console.log( result[0] ) //{ num:120, times:`*`, num:12 }//
 
 */
 var virtual_core = {

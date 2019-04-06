@@ -12,7 +12,7 @@ vmBAIN implements a virtual machine which emulates a microprocessor instruction 
 
 ### NOTES
 
-	All training data must be separated in right hand side / left hand Side (rhs/lhs) assertions: 
+All training data must be separated into right hand side / left hand side assertions (rhs/lhs): 
 	
 ```javascript
 	var training_set = { 

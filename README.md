@@ -27,7 +27,7 @@ The engine first attempts
 - Boolean match
 
 ...on the training set; if these matches fail, then a more powerful algorithmic combination is attempted
-through analysis of the virtual Core's Program Status Word Register flags (PSW)
+through analysis of the virtual Core's Program Status Word Register (PSW)
 
 ### EXAMPLE
 

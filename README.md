@@ -33,8 +33,8 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 
 ```javascript
 	let engine = new __VMBAIN__( [ training_set ] ) 
-	let result = engine.exec( [ set ] )
-	console.log( result[0] ) //{...}//
+	let result = engine.exec( [ { num : 0, times : `*`, num : 0 } ] )
+	console.log( result[0] ) //{ product : 0 }//
 ```
 
 ### EXAMPLE

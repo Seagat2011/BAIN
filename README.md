@@ -21,13 +21,13 @@ All training data must be separated into right hand side / left hand side assert
 	}
 ```
 	
-	The engine first attempts 
+The engine first attempts 
 
-		- Arithmetic match
-		- Boolean match
+- Arithmetic match
+- Boolean match
 
-	...on the training data; if these methods fail, then a more powerful algorithmic combination is attempted
-	through analysis of the virtual Core's Program Status Word Register flags (PSW)
+...on the training data; if these matches fail, then a more powerful algorithmic combination is attempted
+through analysis of the virtual Core's Program Status Word Register flags (PSW)
 
 ### EXAMPLE
 

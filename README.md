@@ -6,13 +6,13 @@ vmBAIN implements a virtual machine which emulates a microprocessor instruction 
 
 ### USAGE
 
-	let engine = new __VMBAIN__( [ {json training data...} ],[ {desired json output...} ]) 
-	let result = engine.exec( [ {json training data...} ] ) // [ {...}, ...]
-	console.log( result[0] ) // [ {desired json output...} ] //
+	let engine = new __VMBAIN__( [ {json training set...} ] ]) 
+	let result = engine.exec( [ {json training set...} ] ) // [ {...}, ...] //
+	console.log( result[0] ) // [ {json output...} ] //
 
 ### NOTES
 
-All training data must be separated into right hand side / left hand side assertions (rhs/lhs): 
+All training sets must be separated into right hand side / left hand side assertions (rhs/lhs): 
 	
 ```javascript
 	var training_set = { 
@@ -26,7 +26,7 @@ The engine first attempts
 - Arithmetic match
 - Boolean match
 
-...on the training data; if these matches fail, then a more powerful algorithmic combination is attempted
+...on the training set; if these matches fail, then a more powerful algorithmic combination is attempted
 through analysis of the virtual Core's Program Status Word Register flags (PSW)
 
 ### EXAMPLE

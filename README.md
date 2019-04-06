@@ -7,8 +7,8 @@ vmBAIN implements an ecma6 virtual machine which emulates an x86 microprocessor 
 ### USAGE
 
 	let engine = new __VMBAIN__( [ {json training set...} ] ]) 
-	let result = engine.exec( [ {json training set...} ] ) // [ {...}, ...] //
-	console.log( result[0] ) // [ {json output...} ] //
+	let result = engine.exec( [ {json training set...} ],flags )
+	console.log( result[0] )
 
 ### NOTES
 
@@ -33,7 +33,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 
 ```javascript
 	let engine = new __VMBAIN__( [ training_set ] ) 
-	let result = engine.exec( [ set ] ) //[ {...}, ...]//
+	let result = engine.exec( [ set ] )
 	console.log( result[0] ) //{...}//
 ```
 
@@ -83,7 +83,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	.
 	.
 	let tt_unk = { product : 1440 }
-	let result = engine.exec( [ tt_unk ],`converge` ) //multiple solutions, converge on first answer//
-	console.log( result[0].json ) //{ num : 120, times : `*`, num : 12 }//
+	let result = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
+	console.log( result[0] ) //{ num : 120, times : `*`, num : 12 }//
 ```
 

@@ -76,7 +76,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 		rhs : { num : 0, times : `*`, num : 2 } }
 	.
 	.
-	let tt000 = { 
+	let tt144 = { 
 		lhs : { product : 144 }, 
 		rhs : { num : 12, times : `*`, num : 12 } }	
 	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )

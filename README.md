@@ -2,7 +2,7 @@
 
 Virtual Machine Based Artificial Intelligence Network (VMBAIN)  
 
-vmBAIN implements an ecma6 virtual machine which emulates a microprocessor instruction set, specifically built for targeted operation. vmBAIN is intended as an alternative for artificial neural networks.  
+vmBAIN implements an ecma6 virtual machine which emulates an x86 microprocessor instruction set, specifically built for targeted operation. vmBAIN is intended as an alternative for artificial neural networks.  
 
 ### USAGE
 

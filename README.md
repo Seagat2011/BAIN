@@ -6,8 +6,8 @@ vmBAIN implements an ecma6 virtual machine which emulates an x86 microprocessor 
 
 ### USAGE
 
-	let engine = new __VMBAIN__( [ {json training set...} ] ]) 
-	let result = engine.exec( [ {json training set...} ],flags )
+	let engine = new __VMBAIN__( [ {json training set...},... ] ]) 
+	let result = engine.exec( [ {json data set...},... ],flags )
 	console.log( result[0] )
 
 ### NOTES

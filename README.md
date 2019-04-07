@@ -36,7 +36,7 @@ Quotes mitigate naming conflicts. The engine first attempts
 ...on the training set; if these matches fail, then a more powerful algorithmic combination is attempted
 through analysis of the virtual Core's Program Status Word Register (PSW)
 
-### EXAMPLE
+An instantiation example
 
 ```javascript
 	let engine = new __VMBAIN__( training_set ) 
@@ -44,7 +44,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	console.log( result[0] ) //'{ product : 0 }'//
 ```
 
-### EXAMPLE
+A basic truth table
 
 ```javascript
 	let tt000 = { 
@@ -70,7 +70,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	console.log( result[0] ) //'{ product : 14400 }'//
 ```
 
-### EXAMPLE
+A reverse truth table
 
 ```javascript
 	let tt000 = { 
@@ -99,9 +99,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	console.log( result01 ) //['{ num : 120, mult : `*`, num : 12 }']//
 ```
 
-To include additional dimensional components (eg Time)
-
-### EXAMPLE
+An example use of Arrays to include additional dimensional components (eg Time)
 
 ```javascript
       let tt000 = {
@@ -110,7 +108,7 @@ To include additional dimensional components (eg Time)
 	}
 ```
 
-### EXAMPLE
+A speech training example
 
 ```javascript
         let tt000 = {

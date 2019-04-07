@@ -64,9 +64,9 @@ A basic multiplication table
 	let engine = new __VMBAIN__( training_set )
 	 .
 	 .
-	let tt_unk = '{ num : 120, mult : `*`, num : 120 }'
+	let tt_unk = '{ num : 12, mult : `*`, num : 12 }'
 	let result = engine.__exec( [ tt_unk ] ) 
-	console.log( result[0] ) // '{ product : 14400 }' //
+	console.log( result[0] ) // '{ product : 144 }' //
 ```
 
 A reverse multiplication table
@@ -90,12 +90,12 @@ A reverse multiplication table
 	let engine = new __VMBAIN__( training_set )
 	 .
 	 .
-	let tt_unk = '{ product : 1440 }'
+	let tt_unk = '{ product : 144 }'
 	let result00 = engine.__exec( [ tt_unk ] ) 
 	let result01 = engine.__exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first solution//
-	console.log( result00 )   // ['{ num : 120, mult : `*`, num : 12 }',...] //
-	console.log( result00[0] ) // '{ num : 120, mult : `*`, num : 12 }' //
-	console.log( result01 ) // ['{ num : 120, mult : `*`, num : 12 }'] //
+	console.log( result00 )   // ['{ num : 12, mult : `*`, num : 12 }',...] //
+	console.log( result00[0] ) // '{ num : 12, mult : `*`, num : 12 }' //
+	console.log( result01 ) // ['{ num : 12, mult : `*`, num : 12 }'] //
 ```
 
 An example use of Arrays to add additional dimensional components (eg Time)

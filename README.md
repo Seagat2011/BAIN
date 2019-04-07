@@ -109,7 +109,7 @@ To include additional dimensional components (eg Time)
 	
 	let tt001 = {
 	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...]',
-	       rhs : '{ msg : "World" }'
+	       rhs : '{ msg : "Hello" }'
 	}
 	
 	let training_set = [ tt000,tt001 ]
@@ -117,7 +117,7 @@ To include additional dimensional components (eg Time)
 	let engine = new __VMBAIN__( [ training_set ] )
 ```
 
-As is valid, the following
+For multiple concurrent training sessions
 
 ```javascript
         let tt000 = {
@@ -126,9 +126,12 @@ As is valid, the following
 	}
 	
 	let tt001 = {
-	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...]',
+	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "World" }'
-	} 
+	}
 	
-	let engine = new __VMBAIN__( [ tt000,tt001 ] )
+	let training_set1 = [ tt000 ]
+	let training_set2 = [ tt001 ]
+	
+	let engine = new __VMBAIN__( [ training_set1, training_set2 ] )
 ```

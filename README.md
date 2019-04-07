@@ -44,7 +44,7 @@ An instantiation example
 	console.log( result[0] ) //'{ product : 0 }'//
 ```
 
-A basic truth table
+A basic multiplication table
 
 ```javascript
 	let tt000 = { 
@@ -70,7 +70,7 @@ A basic truth table
 	console.log( result[0] ) //'{ product : 14400 }'//
 ```
 
-A reverse truth table
+A reverse multiplication table
 
 ```javascript
 	let tt000 = { 
@@ -143,4 +143,111 @@ For multiple concurrent training sessions
 	let training_set2 = [ tt001 ]
 	
 	let engine = new __VMBAIN__( training_set1, training_set2 )
+```
+
+To upgrade
+
+```javascript
+        let tt000 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt001 = {
+	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "World" }'
+	}
+	
+	let training_set1 = [ tt000 ]
+	let training_set2 = [ tt001 ]
+	
+	let engine = new __VMBAIN__( training_set1 )
+	engine.__extend( training_set2 )
+```
+
+To patch
+
+```javascript
+        let tt000 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt001 = {
+	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "World" }'
+	}
+	
+	let training_set1 = [ tt000 ]
+	let training_set2 = [ tt001 ]
+	
+	let engine = new __VMBAIN__( training_set1 )
+	engine.__patch( training_set2,training_set1 )
+```
+
+To view a library
+
+```javascript
+        let tt000 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt001 = {
+	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let training_set1 = [ tt000, tt001 ]
+	
+	let engine = new __VMBAIN__( training_set1 )
+	console.log( engine.__includes() ) //[ '{ module : "training_set1" }', '{ module : "training_set2" }' ]//
+```
+
+To examine a runtime
+
+```javascript
+        let tt000 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt001 = {
+	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let training_set1 = [ tt000, tt001 ]
+	
+	let engine = new __VMBAIN__( training_set1 )
+	console.log( engine.__decompile() ) // ['let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...]
+```
+
+To unload a library
+
+```javascript
+        let tt000 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt001 = {
+	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let training_set1 = [ tt000, tt001 ]
+	
+	let engine = new __VMBAIN__( training_set1 )
+	let f = engine.__serialize()
+	console.log( f ) // [{ __decompile : 'let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...] //
+```
+
+To reload a library
+
+```javascript
+        let f = [{ __decompile : 'let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...]
+	let engine = new __VMBAIN__()
+	engine.__deserialize(f)
+	console.log( engine.__decompile() // ['let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...] //
 ```

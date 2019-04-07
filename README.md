@@ -38,7 +38,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 
 ```javascript
 	let engine = new __VMBAIN__( [ training_set, training_set2 ] ) 
-	let result = engine.exec( [ '{ num : 0, times : `*`, num : 0 }' ] )
+	let result = engine.exec( [ '{ num : 0, mult : `*`, num : 0 }' ] )
 	console.log( result[0] ) //'{ product : 0 }'//
 ```
 

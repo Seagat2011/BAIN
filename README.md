@@ -99,7 +99,7 @@ A reverse multiplication table
 	console.log( result01 ) // ['{ num : 120, mult : `*`, num : 12 }'] //
 ```
 
-An example use of Arrays to include additional dimensional components (eg Time)
+An example use of Arrays to add additional dimensional components (eg Time)
 
 ```javascript
       let tt000 = {

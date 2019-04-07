@@ -19,6 +19,11 @@ All training sets must be separated into right hand side / left hand side assert
 		lhs : '{ num : 0, times : "*", num : 0 }', 
 		rhs : '{ product : 0 }' 
 	}
+	
+	var training_set2 = {
+	        lhs : '{ num : 4, times : "*", num : 4 }',
+		rhs : '{ product : 16 }'
+	}
 ```
 	
 Quotes mitigate naming conflicts. The engine first attempts 
@@ -32,7 +37,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 ### EXAMPLE
 
 ```javascript
-	let engine = new __VMBAIN__( [ training_set ] ) 
+	let engine = new __VMBAIN__( [ training_set, training_set2 ] ) 
 	let result = engine.exec( [ '{ num : 0, times : `*`, num : 0 }' ] )
 	console.log( result[0] ) //'{ product : 0 }'//
 ```

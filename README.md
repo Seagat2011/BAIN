@@ -37,6 +37,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 An instantiation example
 
 ```javascript
+        let training_set = [ training_set1, training_set2 ]
 	let engine = new __VMBAIN__( training_set ) 
 	let result = engine.__exec( [ '{ num : 0, mult : `*`, num : 0 }' ] )
 	console.log( result[0] ) // '{ product : 0 }' //

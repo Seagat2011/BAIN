@@ -16,12 +16,12 @@ All training sets must be separated into right hand side / left hand side assert
 	
 ```javascript
 	var training_set = { 
-		lhs : '{ num : 0, times : "*", num : 0 }', 
+		lhs : '{ num : 0, mult : "*", num : 0 }', 
 		rhs : '{ product : 0 }' 
 	}
 	
 	var training_set2 = {
-	        lhs : '{ num : 4, times : "*", num : 4 }',
+	        lhs : '{ num : 4, mult : "*", num : 4 }',
 		rhs : '{ product : 16 }'
 	}
 ```
@@ -46,23 +46,23 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 
 ```javascript
 	let tt000 = { 
-		lhs : '{ num : 0, times : `*`, num : 0 }', 
+		lhs : '{ num : 0, mult : `*`, num : 0 }', 
 		rhs : '{ product : 0 }' }
 	let tt001 = { 
-		lhs : '{ num : 0, times : `*`, num : 1 }', 
+		lhs : '{ num : 0, mult : `*`, num : 1 }', 
 		rhs : '{ product : 0 }' }
 	let tt002 = { 
-		lhs : '{ num : 0, times : `*`, num : 2 }', 
+		lhs : '{ num : 0, mult : `*`, num : 2 }', 
 		rhs : '{ product : 0 }' }
 	.
 	.
 	let tt144 = { 
-		lhs : '{ num : 12, times : `*`, num : 12 }', 
+		lhs : '{ num : 12, mult : `*`, num : 12 }', 
 		rhs : '{ product : 144 }' }	
 	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
 	.
 	.
-	let tt_unk = '{ num : 120, times : `*`, num : 120 }'
+	let tt_unk = '{ num : 120, mult : `*`, num : 120 }'
 	let result = engine.exec( [ tt_unk ] ) 
 	console.log( result[0] ) //'{ product : 14400 }'//
 ```
@@ -72,23 +72,23 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 ```javascript
 	let tt000 = { 
 		lhs : '{ product : 0 }', 
-		rhs : '{ num : 0, times : `*`, num : 0 }' }
+		rhs : '{ num : 0, mult : `*`, num : 0 }' }
 	let tt001 = { 
 		lhs : '{ product : 0 }', 
-		rhs : '{ num : 0, times : `*`, num : 1 }' }
+		rhs : '{ num : 0, mult : `*`, num : 1 }' }
 	let tt002 = { 
 		lhs : '{ product : 0 }', 
-		rhs : '{ num : 0, times : `*`, num : 2 }' }
+		rhs : '{ num : 0, mult : `*`, num : 2 }' }
 	.
 	.
 	let tt144 = { 
 		lhs : '{ product : 144 }', 
-		rhs : '{ num : 12, times : `*`, num : 12 }' }	
+		rhs : '{ num : 12, mult : `*`, num : 12 }' }	
 	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
 	.
 	.
 	let tt_unk = '{ product : 1440 }'
 	let result = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
-	console.log( result[0] ) //'{ num : 120, times : `*`, num : 12 }'//
+	console.log( result[0] ) //'{ num : 120, mult : `*`, num : 12 }'//
 ```
 

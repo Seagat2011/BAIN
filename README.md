@@ -41,7 +41,7 @@ An instantiation example
 ```javascript
 	let engine = new __VMBAIN__( training_set ) 
 	let result = engine.__exec( [ '{ num : 0, mult : `*`, num : 0 }' ] )
-	console.log( result[0] ) //'{ product : 0 }'//
+	console.log( result[0] ) // '{ product : 0 }' //
 ```
 
 A basic multiplication table
@@ -67,7 +67,7 @@ A basic multiplication table
 	 .
 	let tt_unk = '{ num : 120, mult : `*`, num : 120 }'
 	let result = engine.__exec( [ tt_unk ] ) 
-	console.log( result[0] ) //'{ product : 14400 }'//
+	console.log( result[0] ) // '{ product : 14400 }' //
 ```
 
 A reverse multiplication table
@@ -94,9 +94,9 @@ A reverse multiplication table
 	let tt_unk = '{ product : 1440 }'
 	let result00 = engine.__exec( [ tt_unk ] ) 
 	let result01 = engine.__exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first solution//
-	console.log( result00 )   //['{ num : 120, mult : `*`, num : 12 }',...]//
-	console.log( result00[0] ) //'{ num : 120, mult : `*`, num : 12 }'//
-	console.log( result01 ) //['{ num : 120, mult : `*`, num : 12 }']//
+	console.log( result00 )   // ['{ num : 120, mult : `*`, num : 12 }',...] //
+	console.log( result00[0] ) // '{ num : 120, mult : `*`, num : 12 }' //
+	console.log( result01 ) // ['{ num : 120, mult : `*`, num : 12 }'] //
 ```
 
 An example use of Arrays to include additional dimensional components (eg Time)
@@ -201,7 +201,7 @@ To view a library
 	let training_set1 = [ tt000, tt001 ]
 	
 	let engine = new __VMBAIN__( training_set1 )
-	console.log( engine.__includes() ) //[ '{ module : "training_set1" }', '{ module : "training_set2" }' ]//
+	console.log( engine.__includes() ) // [ '{ module : "training_set1" }', '{ module : "training_set2" }' ] //
 ```
 
 To examine a runtime
@@ -220,7 +220,7 @@ To examine a runtime
 	let training_set1 = [ tt000, tt001 ]
 	
 	let engine = new __VMBAIN__( training_set1 )
-	console.log( engine.__decompile() ) // ['let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...]
+	console.log( engine.__decompile() ) // ['let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...] //
 ```
 
 To unload a library

@@ -103,12 +103,12 @@ To include additional dimensional components (eg Time)
 
 ```javascript
         let tt00 = {
-	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...],
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "Hello" }'
 	}
 	
 	let tt01 = {
-	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...],
+	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "World" }'
 	}
 	
@@ -121,12 +121,12 @@ As is valid, the following
 
 ```javascript
         let tt00 = {
-	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...],
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "Hello" }'
 	}
 	
 	let tt01 = {
-	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...],
+	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "World" }'
 	} 
 	

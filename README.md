@@ -7,7 +7,7 @@ vmBAIN implements an ecma6 virtual machine which emulates an x86 microprocessor 
 ### USAGE
 
 	let engine = new __VMBAIN__( [ {json training set...},... ] ]) 
-	let result = engine.exec( [ {json data set...},... ],flags )
+	let result = engine.__exec( [ {json data set...},... ],flags )
 	console.log( result[0] )
 
 ### NOTES
@@ -40,7 +40,7 @@ An instantiation example
 
 ```javascript
 	let engine = new __VMBAIN__( training_set ) 
-	let result = engine.exec( [ '{ num : 0, mult : `*`, num : 0 }' ] )
+	let result = engine.__exec( [ '{ num : 0, mult : `*`, num : 0 }' ] )
 	console.log( result[0] ) //'{ product : 0 }'//
 ```
 
@@ -66,7 +66,7 @@ A basic truth table
 	 .
 	 .
 	let tt_unk = '{ num : 120, mult : `*`, num : 120 }'
-	let result = engine.exec( [ tt_unk ] ) 
+	let result = engine.__exec( [ tt_unk ] ) 
 	console.log( result[0] ) //'{ product : 14400 }'//
 ```
 
@@ -92,8 +92,8 @@ A reverse truth table
 	 .
 	 .
 	let tt_unk = '{ product : 1440 }'
-	let result00 = engine.exec( [ tt_unk ] ) 
-	let result01 = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first solution//
+	let result00 = engine.__exec( [ tt_unk ] ) 
+	let result01 = engine.__exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first solution//
 	console.log( result00 )   //['{ num : 120, mult : `*`, num : 12 }',...]//
 	console.log( result00[0] ) //'{ num : 120, mult : `*`, num : 12 }'//
 	console.log( result01 ) //['{ num : 120, mult : `*`, num : 12 }']//

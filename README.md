@@ -24,8 +24,6 @@ All training sets must be separated into right hand side / left hand side assert
 	        lhs : '{ num : 4, mult : "*", num : 4 }',
 		rhs : '{ product : 16 }'
 	}
-	
-	var training_set = [ training_set1, training_set2 ]
 ```
 	
 Quotes mitigate naming conflicts. The engine first attempts 

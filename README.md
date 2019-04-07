@@ -125,6 +125,24 @@ A speech training example
 	let engine = new __VMBAIN__( training_set )
 ```
 
+For multiple concurrent training sessions
+
+```javascript
+        let tt000 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt001 = {
+	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
+	       rhs : '{ msg : "World" }'
+	}
+	
+	let training_set1 = [ tt000 ]
+	let training_set2 = [ tt001 ]
+	
+	let engine = new __VMBAIN__( training_set1, training_set2 )
+```
 
 An automated trading example
 
@@ -144,28 +162,10 @@ An automated trading example
 	       rhs : '{ msg : "Buy" }'
 	}
 	
-	let training_set = [ tt000,tt001,tt002 ]
+	let training_set00 = [ tt000,tt001 ]
+	let training_set01 = [ tt002 ]
 	
-	let engine = new __VMBAIN__( training_set )
-```
-
-For multiple concurrent training sessions
-
-```javascript
-        let tt000 = {
-	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
-	       rhs : '{ msg : "Hello" }'
-	}
-	
-	let tt001 = {
-	       lhs : '[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]',
-	       rhs : '{ msg : "World" }'
-	}
-	
-	let training_set1 = [ tt000 ]
-	let training_set2 = [ tt001 ]
-	
-	let engine = new __VMBAIN__( training_set1, training_set2 )
+	let engine = new __VMBAIN__( training_set00, training_set01 )
 ```
 
 To upgrade

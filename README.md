@@ -88,7 +88,11 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	.
 	.
 	let tt_unk = '{ product : 1440 }'
-	let result = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
-	console.log( result[0] ) //'{ num : 120, mult : `*`, num : 12 }'//
+	let result00 = engine.exec( [ tt_unk ] ) 
+	let result01 = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
+	console.log( result00 )   //['{ num : 120, mult : `*`, num : 12 }',...]//
+	console.log( result00[0] ) //'{ num : 120, mult : `*`, num : 12 }'//
+	console.log( result01 ) //['{ num : 120, mult : `*`, num : 12 }']//
 ```
+
 

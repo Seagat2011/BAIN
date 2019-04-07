@@ -249,5 +249,5 @@ To reload a library
         let f = [{ __decompile : 'let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...]
 	let engine = new __VMBAIN__()
 	engine.__deserialize(f)
-	console.log( engine.__decompile() // ['let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...] //
+	console.log( engine.__decompile() ) // ['let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...] //
 ```

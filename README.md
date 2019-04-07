@@ -102,17 +102,17 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 To include additional dimensional components (eg Time)
 
 ```javascript
-        let tt00 = {
+        let tt000 = {
 	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "Hello" }'
 	}
 	
-	let tt01 = {
+	let tt001 = {
 	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "World" }'
 	}
 	
-	let training_set = [ tt000,tt144 ]
+	let training_set = [ tt000,tt001 ]
 	
 	let engine = new __VMBAIN__( [ training_set ] )
 ```
@@ -120,15 +120,15 @@ To include additional dimensional components (eg Time)
 As is valid, the following
 
 ```javascript
-        let tt00 = {
+        let tt000 = {
 	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "Hello" }'
 	}
 	
-	let tt01 = {
+	let tt001 = {
 	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...]',
 	       rhs : '{ msg : "World" }'
 	} 
 	
-	let engine = new __VMBAIN__( [ tt000,tt144 ] )
+	let engine = new __VMBAIN__( [ tt000,tt001 ] )
 ```

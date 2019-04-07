@@ -92,7 +92,7 @@ A reverse multiplication table
 	 .
 	let tt_unk = '{ product : 144 }'
 	let result00 = engine.__exec( [ tt_unk ] ) 
-	let result01 = engine.__exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first solution//
+	let result01 = engine.__exec( [ tt_unk ],`converge` ) //iff many solutions, converge on first solution//
 	console.log( result00 )   // ['{ num : 12, mult : `*`, num : 12 }',...] //
 	console.log( result00[0] ) // '{ num : 12, mult : `*`, num : 12 }' //
 	console.log( result01 ) // ['{ num : 12, mult : `*`, num : 12 }'] //

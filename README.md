@@ -16,12 +16,12 @@ All training sets must be separated into right hand side / left hand side assert
 	
 ```javascript
 	var training_set = { 
-		lhs : { num : 0, times : `*`, num : 0 }, 
-		rhs : { product : 0 } 
+		lhs : '{ num : 0, times : "*", num : 0 }', 
+		rhs : '{ product : 0 }' 
 	}
 ```
 	
-The engine first attempts 
+Quotes mitigate naming conflicts. The engine first attempts 
 
 - Arithmetic match
 - Boolean match
@@ -33,57 +33,57 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 
 ```javascript
 	let engine = new __VMBAIN__( [ training_set ] ) 
-	let result = engine.exec( [ { num : 0, times : `*`, num : 0 } ] )
-	console.log( result[0] ) //{ product : 0 }//
+	let result = engine.exec( [ '{ num : 0, times : `*`, num : 0 }' ] )
+	console.log( result[0] ) //'{ product : 0 }'//
 ```
 
 ### EXAMPLE
 
 ```javascript
 	let tt000 = { 
-		lhs : { num : 0, times : `*`, num : 0 }, 
-		rhs : { product : 0 } }
+		lhs : '{ num : 0, times : `*`, num : 0 }', 
+		rhs : '{ product : 0 }' }
 	let tt001 = { 
-		lhs : { num : 0, times : `*`, num : 1 }, 
-		rhs : { product : 0 } }
+		lhs : '{ num : 0, times : `*`, num : 1 }', 
+		rhs : '{ product : 0 }' }
 	let tt002 = { 
-		lhs : { num : 0, times : `*`, num : 2 }, 
-		rhs : { product : 0 } }
+		lhs : '{ num : 0, times : `*`, num : 2 }', 
+		rhs : '{ product : 0 }' }
 	.
 	.
 	let tt144 = { 
-		lhs : { num : 12, times : `*`, num : 12 }, 
-		rhs : { product : 144 } }	
+		lhs : '{ num : 12, times : `*`, num : 12 }', 
+		rhs : '{ product : 144 }' }	
 	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
 	.
 	.
-	let tt_unk = { num : 120, times : `*`, num : 120 }
+	let tt_unk = '{ num : 120, times : `*`, num : 120 }'
 	let result = engine.exec( [ tt_unk ] ) 
-	console.log( result[0] ) //{ product : 14400 }//
+	console.log( result[0] ) //'{ product : 14400 }'//
 ```
 
 ### EXAMPLE
 
 ```javascript
 	let tt000 = { 
-		lhs : { product : 0 }, 
-		rhs : { num : 0, times : `*`, num : 0 } }
+		lhs : '{ product : 0 }', 
+		rhs : '{ num : 0, times : `*`, num : 0 }' }
 	let tt001 = { 
-		lhs : { product : 0 }, 
-		rhs : { num : 0, times : `*`, num : 1 } }
+		lhs : '{ product : 0 }', 
+		rhs : '{ num : 0, times : `*`, num : 1 }' }
 	let tt002 = { 
-		lhs : { product : 0 }, 
-		rhs : { num : 0, times : `*`, num : 2 } }
+		lhs : '{ product : 0 }', 
+		rhs : '{ num : 0, times : `*`, num : 2 }' }
 	.
 	.
 	let tt144 = { 
-		lhs : { product : 144 }, 
-		rhs : { num : 12, times : `*`, num : 12 } }	
+		lhs : '{ product : 144 }', 
+		rhs : '{ num : 12, times : `*`, num : 12 }' }	
 	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
 	.
 	.
-	let tt_unk = { product : 1440 }
+	let tt_unk = '{ product : 1440 }'
 	let result = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
-	console.log( result[0] ) //{ num : 120, times : `*`, num : 12 }//
+	console.log( result[0] ) //'{ num : 120, times : `*`, num : 12 }'//
 ```
 

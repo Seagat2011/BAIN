@@ -15,7 +15,7 @@ vmBAIN implements an ecma6 virtual machine which emulates an x86 microprocessor 
 All training sets must be separated into right hand side / left hand side assertions (rhs/lhs): 
 	
 ```javascript
-	var training_set = { 
+	var training_set1 = { 
 		lhs : '{ num : 0, mult : "*", num : 0 }', 
 		rhs : '{ product : 0 }' 
 	}
@@ -24,6 +24,8 @@ All training sets must be separated into right hand side / left hand side assert
 	        lhs : '{ num : 4, mult : "*", num : 4 }',
 		rhs : '{ product : 16 }'
 	}
+	
+	var training_set = [ training_set1, training_set2 ]
 ```
 	
 Quotes mitigate naming conflicts. The engine first attempts 
@@ -37,7 +39,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 ### EXAMPLE
 
 ```javascript
-	let engine = new __VMBAIN__( [ training_set, training_set2 ] ) 
+	let engine = new __VMBAIN__( [ training_set ] ) 
 	let result = engine.exec( [ '{ num : 0, mult : `*`, num : 0 }' ] )
 	console.log( result[0] ) //'{ product : 0 }'//
 ```
@@ -58,8 +60,9 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	.
 	let tt144 = { 
 		lhs : '{ num : 12, mult : `*`, num : 12 }', 
-		rhs : '{ product : 144 }' }	
-	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
+		rhs : '{ product : 144 }' }
+	let training_set = [ tt000,...,tt144 ]
+	let engine = new __VMBAIN__( training_set )
 	.
 	.
 	let tt_unk = '{ num : 120, mult : `*`, num : 120 }'
@@ -83,8 +86,9 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	.
 	let tt144 = { 
 		lhs : '{ product : 144 }', 
-		rhs : '{ num : 12, mult : `*`, num : 12 }' }	
-	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
+		rhs : '{ num : 12, mult : `*`, num : 12 }' }
+	let training_set = [ tt000,...,tt144 ]
+	let engine = new __VMBAIN__( [ training_set ] )
 	.
 	.
 	let tt_unk = '{ product : 1440 }'
@@ -95,4 +99,36 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	console.log( result01 ) //['{ num : 120, mult : `*`, num : 12 }']//
 ```
 
+To include additional dimensional components (eg Time)
 
+```javascript
+        let tt00 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...],
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt01 = {
+	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...],
+	       rhs : '{ msg : "World" }'
+	}
+	
+	let training_set = [ tt000,tt144 ]
+	
+	let engine = new __VMBAIN__( [ training_set ] )
+```
+
+As is valid, the following
+
+```javascript
+        let tt00 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...],
+	       rhs : '{ msg : "Hello" }'
+	}
+	
+	let tt01 = {
+	       lhs : '[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...],
+	       rhs : '{ msg : "World" }'
+	} 
+	
+	let engine = new __VMBAIN__( [ tt000,tt144 ] )
+```

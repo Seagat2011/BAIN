@@ -39,7 +39,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 ### EXAMPLE
 
 ```javascript
-	let engine = new __VMBAIN__( [ training_set ] ) 
+	let engine = new __VMBAIN__( training_set ) 
 	let result = engine.exec( [ '{ num : 0, mult : `*`, num : 0 }' ] )
 	console.log( result[0] ) //'{ product : 0 }'//
 ```
@@ -56,15 +56,15 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	let tt002 = { 
 		lhs : '{ num : 0, mult : `*`, num : 2 }', 
 		rhs : '{ product : 0 }' }
-	.
-	.
+	 .
+	 .
 	let tt144 = { 
 		lhs : '{ num : 12, mult : `*`, num : 12 }', 
 		rhs : '{ product : 144 }' }
 	let training_set = [ tt000,...,tt144 ]
 	let engine = new __VMBAIN__( training_set )
-	.
-	.
+	 .
+	 .
 	let tt_unk = '{ num : 120, mult : `*`, num : 120 }'
 	let result = engine.exec( [ tt_unk ] ) 
 	console.log( result[0] ) //'{ product : 14400 }'//
@@ -82,15 +82,15 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 	let tt002 = { 
 		lhs : '{ product : 0 }', 
 		rhs : '{ num : 0, mult : `*`, num : 2 }' }
-	.
-	.
+	 .
+	 .
 	let tt144 = { 
 		lhs : '{ product : 144 }', 
 		rhs : '{ num : 12, mult : `*`, num : 12 }' }
 	let training_set = [ tt000,...,tt144 ]
-	let engine = new __VMBAIN__( [ training_set ] )
-	.
-	.
+	let engine = new __VMBAIN__( training_set )
+	 .
+	 .
 	let tt_unk = '{ product : 1440 }'
 	let result00 = engine.exec( [ tt_unk ] ) 
 	let result01 = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
@@ -100,6 +100,17 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 ```
 
 To include additional dimensional components (eg Time)
+
+### EXAMPLE
+
+```javascript
+      let tt000 = {
+	       lhs : '[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, { freq : 0x43, amp : 0x4, time_slice : 0x01 },...]',
+	       rhs : '{ msg : "Hello" }'
+	}
+```
+
+### EXAMPLE
 
 ```javascript
         let tt000 = {
@@ -114,7 +125,7 @@ To include additional dimensional components (eg Time)
 	
 	let training_set = [ tt000,tt001 ]
 	
-	let engine = new __VMBAIN__( [ training_set ] )
+	let engine = new __VMBAIN__( training_set )
 ```
 
 For multiple concurrent training sessions
@@ -133,5 +144,5 @@ For multiple concurrent training sessions
 	let training_set1 = [ tt000 ]
 	let training_set2 = [ tt001 ]
 	
-	let engine = new __VMBAIN__( [ training_set1, training_set2 ] )
+	let engine = new __VMBAIN__( training_set1, training_set2 )
 ```

@@ -266,7 +266,7 @@ To unload a library
 	console.log( f ) // [{ __decompile : 'let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...] //
 ```
 
-To reload a library
+To load a library
 
 ```javascript
         let f = [{ __decompile : 'let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }','let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }',...]

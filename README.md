@@ -148,12 +148,20 @@ An automated trading example
 
 ```javascript
         let tt000 = {
-	       lhs : '[{ "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 199.4 }, { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 201.1 }, { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.6, "2-hr-avg" : 201.9 } ]',
+	       lhs : `[
+	       { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 199.4 }, 
+	       { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 201.1 }, 
+	       { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.6, "2-hr-avg" : 201.9 } 
+	       ]`,
 	       rhs : '{ msg : "Watch" }'
 	}
 	
 	let tt001 = {
-	       lhs : '[{ "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 199.4 }, { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 201.1 }, { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.6, "2-hr-avg" : 201.9 }]',
+	       lhs : `[
+	       { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 199.4 }, 
+	       { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.4, "2-hr-avg" : 201.1 }, 
+	       { "stock" : "aapl", "5-yr-avg" : 150.4, "2-yr-avg" : 165.3, "1-yr-avg" : 173.3, "200-day-avg" : 177.2, "100-day-avg" : 181.5, "90-day-avg" : 184.3, "20-day-avg" : 186.0, "10-day-avg" : 188.0, "5-day-avg" : 188.8, "2-day-avg" : 191.0, "1-day-avg" : 192.5, "10-hr-avg" : 199.2, "5-hr-avg" : 199.6, "2-hr-avg" : 201.9+ } 
+	       ]`,
 	       rhs : '{ msg : "Buy" }'
 	}
 	

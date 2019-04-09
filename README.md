@@ -26,7 +26,7 @@ All training sets must be separated into right hand side / left hand side assert
 	}
 ```
 	
-Quotes mitigate naming conflicts. The engine first attempts 
+Tick mark quotes mitigate naming conflicts. The engine first attempts 
 
 - Arithmetic match
 - Boolean match

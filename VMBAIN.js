@@ -167,4 +167,4 @@ var __OPCODES__ = [
 	`--`,	
 ]
 __OPCODES__[`00`] = true//EOL//	
-// INSTRUCTION_WORD[8:] : [OPCODE:8][DATA FIELD:N]
+// INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]

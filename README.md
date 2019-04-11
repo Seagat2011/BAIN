@@ -2,7 +2,7 @@
 
 VMSKYE is virtual machine based artificial intelligence engine, intended as alternative for artificial neural networks.   
 
-VMSKYE implements an ecmascript6 virtual machine which emulates an x86_32/64 microprocessor, specifically built for targeted operation.  Optimzed Platform-Specific Code is automatically generated via analyzing the microprocessor's Program Status Word (PSW) 
+VMSKYE implements an ecmascript6 virtual machine which emulates an x86_32/64 microprocessor instruction set, specifically built for targeted operation.  Optimzed Platform-Specific Code is automatically generated via analyzing the microprocessor's Program Status Word (PSW) 
 
 ### USAGE
 

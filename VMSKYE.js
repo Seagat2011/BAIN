@@ -14,7 +14,7 @@ DESCRIPTION
 	Virtual Machine Based Artificial Intelligence Network
 
 USAGE
-	let engine = new __VMBAIN__( [ {json training set...} ] ]) 
+	let engine = new __VMSKYE__( [ {json training set...} ] ]) 
 	let result = engine.exec( [ {json training set...} ] ) // [ {...}, ...]
 	console.log( result[0] ) // [ {desired json output...} ] //
 
@@ -35,7 +35,7 @@ NOTES
 	through analysis of the virtual Core's Program Status Word Register flags (PSW)
 
 EXAMPLE
-	let engine = new __VMBAIN__( [ training_set ] ) 
+	let engine = new __VMSKYE__( [ training_set ] ) 
 	let result = engine.exec( [ { num : 0, times : `*`, num : 0 } ] ) //[ {...}, ...]//
 	console.log( result[0] ) //{ product : 0 }//
 
@@ -54,7 +54,7 @@ EXAMPLE
 	let tt144 = { 
 		lhs:{ num : 12, times : `*`, num : 12 }, 
 		rhs:{ product : 144 } }	
-	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
+	let engine = new __VMSKYE__( [ tt000,...,tt144 ] )
 	.
 	.
 	let tt_unk = { num:120, times:`*`, num:120 }
@@ -76,7 +76,7 @@ EXAMPLE
 	let tt144 = { 
 		lhs:{ product : 144 }, 
 		rhs:{ num : 12, times : `*`, num : 12 } }	
-	let engine = new __VMBAIN__( [ tt000,...,tt144 ] )
+	let engine = new __VMSKYE__( [ tt000,...,tt144 ] )
 	.
 	.
 	let tt_unk = { product:1440 }

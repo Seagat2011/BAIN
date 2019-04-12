@@ -1,12 +1,12 @@
-# VMSKYE
+# ENGRIPPA
 
-VMSKYE is virtual machine based artificial intelligence engine, intended as alternative for artificial neural networks.   
+ENGRIPPA is virtual machine based artificial intelligence engine, intended as alternative for artificial neural networks.   
 
-VMSKYE implements an ecmascript6 virtual machine which emulates an x86_32/64 microprocessor instruction set, specifically built for targeted operation.  Optimzed Platform-Specific Code is automatically generated via analyzing the microprocessor's Program Status Word (PSW) 
+ENGRIPPA implements an ecmascript6 virtual machine which emulates an x86_32/64 microprocessor instruction set, specifically built for targeted operation.  Optimzed Platform-Specific Code is automatically generated via analyzing the microprocessor's Program Status Word (PSW) 
 
 ### USAGE
 
-	let engine = new __VMSKYE__( [ {json training set...},... ] ]) 
+	let engine = new __ENGRIPPA__( [ {json training set...},... ] ]) 
 	let result = engine.__exec( [ {json data set...},... ],flags )
 	console.log( result[0] )
 
@@ -38,7 +38,7 @@ An instantiation example
 
 ```javascript
         let training_set = [ training_set1, training_set2 ]
-	let engine = new __VMSKYE__( training_set ) 
+	let engine = new __ENGRIPPA__( training_set ) 
 	let result = engine.__exec( [ `{ num : 0, mult : '*', num : 0 }` ] )
 	console.log( result[0] ) // `{ product : 0 }` //
 ```
@@ -61,7 +61,7 @@ A basic multiplication table
 		lhs : `{ num : 12, mult : '*', num : 12 }`, 
 		rhs : `{ product : 144 }` }
 	let training_set = [ tt000,...,tt144 ]
-	let engine = new __VMSKYE__( training_set )
+	let engine = new __ENGRIPPA__( training_set )
 	 .
 	 .
 	let tt_unk = `{ num : 12, mult : '*', num : 12 }`
@@ -87,7 +87,7 @@ A reverse multiplication table
 		lhs : `{ product : 144 }`, 
 		rhs : `{ num : 12, mult : '*', num : 12 }` }
 	let training_set = [ tt000,...,tt144 ]
-	let engine = new __VMSKYE__( training_set )
+	let engine = new __ENGRIPPA__( training_set )
 	 .
 	 .
 	let tt_unk = `{ product : 144 }`
@@ -122,7 +122,7 @@ A speech training example
 	
 	let training_set = [ tt000,tt001 ]
 	
-	let engine = new __VMSKYE__( training_set )
+	let engine = new __ENGRIPPA__( training_set )
 ```
 
 For multiple concurrent training sessions
@@ -141,7 +141,7 @@ For multiple concurrent training sessions
 	let training_set1 = [ tt000 ]
 	let training_set2 = [ tt001 ]
 	
-	let engine = new __VMSKYE__( training_set1, training_set2 )
+	let engine = new __ENGRIPPA__( training_set1, training_set2 )
 ```
 
 An automated trading example
@@ -168,7 +168,7 @@ An automated trading example
 	let training_set00 = [ tt000 ]
 	let training_set01 = [ tt001 ]
 	
-	let engine = new __VMSKYE__( training_set00, training_set01 )
+	let engine = new __ENGRIPPA__( training_set00, training_set01 )
 ```
 
 To upgrade
@@ -187,7 +187,7 @@ To upgrade
 	let training_set1 = [ tt000 ]
 	let training_set2 = [ tt001 ]
 	
-	let engine = new __VMSKYE__( training_set1 )
+	let engine = new __ENGRIPPA__( training_set1 )
 	engine.__extend( training_set2 )
 ```
 
@@ -207,7 +207,7 @@ To patch
 	let training_set1 = [ tt000 ]
 	let training_set2 = [ tt001 ]
 	
-	let engine = new __VMSKYE__( training_set1 )
+	let engine = new __ENGRIPPA__( training_set1 )
 	engine.__patch( training_set2,training_set1 )
 ```
 
@@ -226,7 +226,7 @@ To view a library
 	
 	let training_set1 = [ tt000, tt001 ]
 	
-	let engine = new __VMSKYE__( training_set1 )
+	let engine = new __ENGRIPPA__( training_set1 )
 	console.log( engine.__includes() ) // [ `{ module : 'training_set1' }, { module : 'training_set2' }` ] //
 ```
 
@@ -245,7 +245,7 @@ To examine a runtime
 	
 	let training_set1 = [ tt000, tt001 ]
 	
-	let engine = new __VMSKYE__( training_set1 )
+	let engine = new __ENGRIPPA__( training_set1 )
 	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
 ```
 
@@ -264,7 +264,7 @@ To unload a library
 	
 	let training_set1 = [ tt000, tt001 ]
 	
-	let engine = new __VMSKYE__( training_set1 )
+	let engine = new __ENGRIPPA__( training_set1 )
 	let f = engine.__serialize()
 	console.log( f ) // [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
 ```
@@ -273,7 +273,7 @@ To load a library
 
 ```javascript
         let f = [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...]
-	let engine = new __VMSKYE__()
+	let engine = new __ENGRIPPA__()
 	engine.__deserialize(f)
 	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
 ```

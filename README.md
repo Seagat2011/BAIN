@@ -32,7 +32,7 @@ through analysis of the virtual Core's Program Status Word Register (PSW)
 An instantiation example
 
 ```javascript
-        let training_set = [ training_set1 ]
+    let training_set = [ training_set1 ]
 	let engine = new __ENGRIPPA__( training_set ) 
 	let result = engine.__exec( [ `{ num : 0, mult : '*', num : 0 }` ] )
 	console.log( result[0] ) // `{ product : 0 }` //
@@ -96,7 +96,7 @@ A reverse multiplication table
 An example use of Arrays to add additional dimensional components (eg Time)
 
 ```javascript
-      let tt000 = {
+    let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, { freq : 0x43, amp : 0x4, time_slice : 0x01 },...]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
@@ -105,7 +105,7 @@ An example use of Arrays to add additional dimensional components (eg Time)
 A speech training example
 
 ```javascript
-        let tt000 = {
+    let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
@@ -123,7 +123,7 @@ A speech training example
 For multiple concurrent training sessions
 
 ```javascript
-        let tt000 = {
+    let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
@@ -142,7 +142,7 @@ For multiple concurrent training sessions
 An automated trading example
 
 ```javascript
-        let tt000 = {
+    let tt000 = {
 	       lhs : `[
 	       { 'stock' : 'aapl', '5-yr-trend' : 150.4, '2-yr-trend' : 165.3, '1-yr-trend' : 173.3, '200-day-trend' : 177.2, '100-day-trend' : 181.5, '90-day-trend' : 184.3, '20-day-trend' : 186.0, '10-day-trend' : 188.0, '5-day-trend' : 188.8, '2-day-trend' : 191.0, '1-day-trend' : 192.5, '10-hr-trend' : 199.2, '5-hr-trend' : 199.4, '2-hr-trend' : 199.4 }, 
 	       { 'stock' : 'aapl', '5-yr-trend' : 150.4, '2-yr-trend' : 165.3, '1-yr-trend' : 173.3, '200-day-trend' : 177.2, '100-day-trend' : 181.5, '90-day-trend' : 184.3, '20-day-trend' : 186.0, '10-day-trend' : 188.0, '5-day-trend' : 188.8, '2-day-trend' : 191.0, '1-day-trend' : 192.5, '10-hr-trend' : 199.2, '5-hr-trend' : 199.4, '2-hr-trend' : 201.1 }, 
@@ -169,7 +169,7 @@ An automated trading example
 To upgrade
 
 ```javascript
-        let tt000 = {
+    let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
@@ -189,7 +189,7 @@ To upgrade
 To patch
 
 ```javascript
-        let tt000 = {
+    let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
@@ -209,7 +209,7 @@ To patch
 To view a library
 
 ```javascript
-        let tt000 = {
+    let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
@@ -225,10 +225,30 @@ To view a library
 	console.log( engine.__includes() ) // [ `{ module : 'training_set1' }, { module : 'training_set2' }` ] //
 ```
 
+A metatemplate example
+
+```javascript
+	let MSG = 'Hello'
+    let tt000 = {
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       rhs : `{ msg : ${MSG} }`
+	}
+	
+	let tt001 = {
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       rhs : `{ msg : ${MSG} }`
+	}
+	
+	let training_set1 = [ tt000, tt001 ]
+	
+	let engine = new __ENGRIPPA__( training_set1 )
+	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
+```
+
 To examine a runtime
 
 ```javascript
-        let tt000 = {
+    let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
 	       rhs : `{ msg : 'Hello' }`
 	}

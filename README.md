@@ -225,10 +225,10 @@ To view a library
 	console.log( engine.__includes() ) // [ `{ module : 'training_set1' }, { module : 'training_set2' }` ] //
 ```
 
-A metatemplate example
+A string template example
 
 ```javascript
-	let MSG = 'Hello'
+       let MSG = 'Hello'
        let tt000 = {
 	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
 	       rhs : `{ msg : ${MSG} }`

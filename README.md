@@ -176,7 +176,7 @@ To upgrade
 	
 	let tt001 = {
 	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
-	       rhs : `{ msg : 'World' }`
+	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let training_set1 = [ tt000 ]

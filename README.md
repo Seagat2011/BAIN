@@ -19,11 +19,6 @@ All training sets must be separated into right hand side / left hand side assert
 		lhs : `{ num : 0, mult : '*', num : 0 }`, 
 		rhs : `{ product : 0 }` 
 	}
-	
-	var training_set2 = {
-	        lhs : `{ num : 4, mult : '*', num : 4 }`,
-		rhs : `{ product : 16 }`
-	}
 ```
 	
 Quotes mitigate naming conflicts. The engine first attempts 

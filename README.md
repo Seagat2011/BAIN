@@ -120,7 +120,7 @@ A speech training example
 	let engine = new __ENGRIPPA__( training_set )
 ```
 
-For multiple concurrent training sessions
+For concurrent training sessions
 
 ```javascript 
 	let tt000 = {

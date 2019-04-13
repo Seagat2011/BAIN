@@ -96,9 +96,9 @@ A reverse multiplication table
 An example use of Arrays to add additional dimensional components (eg Time)
 
 ```javascript 
-    let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, { freq : 0x43, amp : 0x4, time_slice : 0x01 },...]`,
-	       rhs : `{ msg : 'Hello' }`
+	let tt000 = {
+		lhs : `[{ freq : 0x46, time_slice : 0x0 }, { freq : 0x46, time_slice : 0x1 }, ... }]`,
+		rhs : `{ msg : 'Hello' }`
 	}
 ```
 

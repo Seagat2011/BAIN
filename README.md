@@ -88,7 +88,7 @@ A reverse multiplication table
 	let tt_unk = `{ product : 144 }`
 	let result00 = engine.__exec( [ tt_unk ] ) 
 	let result01 = engine.__exec( [ tt_unk ],'converge' ) //iff many solutions, converge on first solution//
-	console.log( result00 )   // [`{ num : 12, mult : '*', num : 12 }`,...] //
+	console.log( result00 )   // [`{ num : 12, mult : '*', num : 12 }`, ... ] //
 	console.log( result00[0] ) // `{ num : 12, mult : '*', num : 12 }` //
 	console.log( result01 ) // [`{ num : 12, mult : '*', num : 12 }`] //
 ```
@@ -97,7 +97,7 @@ An example use of Arrays to add additional dimensional components (eg Time)
 
 ```javascript 
 	let tt000 = {
-		lhs : `[{ freq : 0x46, time_slice : 0x0 }, { freq : 0x46, time_slice : 0x1 }, ... }]`,
+		lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, { freq : 0x46, amp : 0x6, time_slice : 0x1 }, ... }]`,
 		rhs : `{ msg : 'Hello' }`
 	}
 ```
@@ -106,12 +106,12 @@ A speech training example
 
 ```javascript 
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x38, amp : 0x5, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x38, amp : 0x5, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
@@ -124,12 +124,12 @@ For concurrent training sessions
 
 ```javascript 
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'World' }`
 	}
 	
@@ -170,12 +170,12 @@ To upgrade
 
 ```javascript 
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
@@ -190,12 +190,12 @@ To patch
 
 ```javascript 
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'World' }`
 	}
 	
@@ -210,12 +210,12 @@ To view a library
 
 ```javascript 
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
@@ -230,50 +230,50 @@ A string template example
 ```javascript 
 	let MSG = 'Hello'
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : ${MSG} }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : ${MSG} }`
 	}
 	
 	let training_set1 = [ tt000, tt001 ]
 	
 	let engine = new __ENGRIPPA__( training_set1 )
-	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
+	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```
 
 To examine a runtime
 
 ```javascript 
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let training_set1 = [ tt000, tt001 ]
 	
 	let engine = new __ENGRIPPA__( training_set1 )
-	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
+	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```
 
 To unload a library
 
 ```javascript 
 	let tt000 = {
-	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
 	let tt001 = {
-	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 },...]`,
+	       lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
 	       rhs : `{ msg : 'Hello' }`
 	}
 	
@@ -281,14 +281,14 @@ To unload a library
 	
 	let engine = new __ENGRIPPA__( training_set1 )
 	let f = engine.__serialize()
-	console.log( f ) // [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
+	console.log( f ) // [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```
 
 To load a library
 
 ```javascript 
-	let f = [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...]
+	let f = [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ]
 	let engine = new __ENGRIPPA__()
 	engine.__deserialize(f)
-	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`,...] //
+	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```

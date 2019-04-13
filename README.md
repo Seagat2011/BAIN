@@ -27,7 +27,7 @@ Quotes mitigate naming conflicts. The engine first attempts
 - Boolean match
 
 ...on the training set; if these matches fail, then a more powerful algorithmic combination is attempted
-through analysis of the microprocessor's Program Status Word Register (PSW) against the data stream.
+through analysis of the microprocessor's Program Status Word Register (PSW) against the lhs input stream.
 
 An instantiation example
 

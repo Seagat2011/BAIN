@@ -6,8 +6,8 @@ ENGRIPPA implements an ecmascript6 virtual machine which emulates an x86_32/64 m
 
 ### USAGE
 
-	let engine = new __ENGRIPPA__( [ {json training set...}, ... ] ]) 
-	let result = engine.__exec( [ {json data set...}, ... ],flags )
+	let vm = new __ENGRIPPA__( [ {json training set...}, ... ] ]) 
+	let result = vm.__exec( [ {json data set...}, ... ],flags )
 	console.log( result[0] )
 
 ### NOTES
@@ -33,8 +33,8 @@ An instantiation example
 
 ```javascript 
 	let training_set = [ training_set1 ]
-	let engine = new __ENGRIPPA__( training_set ) 
-	let result = engine.__exec( [ `{ num : 0, mult : '*', num : 0 }` ] )
+	let vm = new __ENGRIPPA__( training_set ) 
+	let result = vm.__exec( [ `{ num : 0, mult : '*', num : 0 }` ] )
 	console.log( result[0] ) // `{ product : 0 }` //
 ```
 
@@ -56,11 +56,11 @@ A basic multiplication table
 		lhs : `{ num : 12, mult : '*', num : 12 }`, 
 		rhs : `{ product : 144 }` }
 	let training_set = [ tt000,...,tt144 ]
-	let engine = new __ENGRIPPA__( training_set )
+	let vm = new __ENGRIPPA__( training_set )
 	 .
 	 .
 	let tt_unk = `{ num : 12, mult : '*', num : 12 }`
-	let result = engine.__exec( [ tt_unk ] ) 
+	let result = vm.__exec( [ tt_unk ] ) 
 	console.log( result[0] ) // `{ product : 144 }` //
 ```
 
@@ -82,12 +82,12 @@ A reverse multiplication table
 		lhs : `{ product : 144 }`, 
 		rhs : `{ num : 12, mult : '*', num : 12 }` }
 	let training_set = [ tt000,...,tt144 ]
-	let engine = new __ENGRIPPA__( training_set )
+	let vm = new __ENGRIPPA__( training_set )
 	 .
 	 .
 	let tt_unk = `{ product : 144 }`
-	let result00 = engine.__exec( [ tt_unk ] ) 
-	let result01 = engine.__exec( [ tt_unk ],'converge' ) //iff many solutions, converge on first solution//
+	let result00 = vm.__exec( [ tt_unk ] ) 
+	let result01 = vm.__exec( [ tt_unk ],'converge' ) //iff many solutions, converge on first solution//
 	console.log( result00 )   // [`{ num : 12, mult : '*', num : 12 }`, ... ] //
 	console.log( result00[0] ) // `{ num : 12, mult : '*', num : 12 }` //
 	console.log( result01 ) // [`{ num : 12, mult : '*', num : 12 }`] //
@@ -117,7 +117,7 @@ A speech training example
 	
 	let training_set = [ tt000,tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set )
+	let vm = new __ENGRIPPA__( training_set )
 ```
 
 For concurrent training sessions
@@ -136,7 +136,7 @@ For concurrent training sessions
 	let training_set1 = [ tt000 ]
 	let training_set2 = [ tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set1, training_set2 )
+	let vm = new __ENGRIPPA__( training_set1, training_set2 )
 ```
 
 An automated trading example
@@ -163,7 +163,7 @@ An automated trading example
 	let training_set00 = [ tt000 ]
 	let training_set01 = [ tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set00, training_set01 )
+	let vm = new __ENGRIPPA__( training_set00, training_set01 )
 ```
 
 To upgrade
@@ -182,8 +182,8 @@ To upgrade
 	let training_set1 = [ tt000 ]
 	let training_set2 = [ tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set1 )
-	engine.__extend( training_set2 )
+	let vm = new __ENGRIPPA__( training_set1 )
+	vm.__extend( training_set2 )
 ```
 
 To patch
@@ -202,8 +202,8 @@ To patch
 	let training_set1 = [ tt000 ]
 	let training_set2 = [ tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set1 )
-	engine.__patch( training_set2,training_set1 )
+	let vm = new __ENGRIPPA__( training_set1 )
+	vm.__patch( training_set2,training_set1 )
 ```
 
 To view a library
@@ -221,8 +221,8 @@ To view a library
 	
 	let training_set1 = [ tt000, tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set1 )
-	console.log( engine.__includes() ) // [ `{ module : 'training_set1' }, { module : 'training_set2' }` ] //
+	let vm = new __ENGRIPPA__( training_set1 )
+	console.log( vm.__includes() ) // [ `{ module : 'training_set1' }, { module : 'training_set2' }` ] //
 ```
 
 A string template example
@@ -241,8 +241,8 @@ A string template example
 	
 	let training_set1 = [ tt000, tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set1 )
-	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
+	let vm = new __ENGRIPPA__( training_set1 )
+	console.log( vm.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```
 
 To examine a runtime
@@ -260,8 +260,8 @@ To examine a runtime
 	
 	let training_set1 = [ tt000, tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set1 )
-	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
+	let vm = new __ENGRIPPA__( training_set1 )
+	console.log( vm.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```
 
 To unload a library
@@ -279,8 +279,8 @@ To unload a library
 	
 	let training_set1 = [ tt000, tt001 ]
 	
-	let engine = new __ENGRIPPA__( training_set1 )
-	let f = engine.__serialize()
+	let vm = new __ENGRIPPA__( training_set1 )
+	let f = vm.__serialize()
 	console.log( f ) // [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```
 
@@ -288,7 +288,7 @@ To load a library
 
 ```javascript 
 	let f = [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ]
-	let engine = new __ENGRIPPA__()
-	engine.__deserialize(f)
-	console.log( engine.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
+	let vm = new __ENGRIPPA__()
+	vm.__deserialize(f)
+	console.log( vm.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```

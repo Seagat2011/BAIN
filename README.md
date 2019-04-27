@@ -93,7 +93,7 @@ A reverse multiplication table
 	console.log( result01 ) // [`{ num : 12, mult : '*', num : 12 }`] //
 ```
 
-An example use of Arrays to add additional dimensional components (eg Time)
+An example using Arrays to add additional dimensional components (eg Time)
 
 ```javascript 
 	let tt000 = {
@@ -120,7 +120,7 @@ A speech training example
 	let vm = new __ENGRIPPA__( training_set )
 ```
 
-For concurrent training sessions
+Concurrent training sessions
 
 ```javascript 
 	let tt000 = {
@@ -204,6 +204,56 @@ To patch
 	
 	let vm = new __ENGRIPPA__( training_set1 )
 	vm.__patch( training_set2,training_set1 )
+```
+
+Dependancy graphs: one-to-many
+
+```javascript
+/* 
+    b
+   /
+ a - c
+   \
+    d   
+*/
+	let tt000 = {
+	       lhs : `{ a : { b, c, d } }`,
+	       rhs : `one-to-many`
+	}
+```
+
+Dependancy graphs: many-to-one
+
+```javascript
+/*
+  b
+   \
+ c - a
+   /
+  d
+*/
+
+	let tt000 = {
+	       lhs : `{ { b, c, d } : a }`,
+	       rhs : `many-to-one`
+	}
+```
+
+Dependancy graphs: An example
+
+```javascript
+/* 
+    b:1
+   /
+ a - c:1
+   \
+    d:1   
+*/
+
+	let tt000 = {
+	       lhs : `{ a : { b, c, d } : 1 }`,
+	       rhs : `many-to-one`
+	}
 ```
 
 To view a library

@@ -217,7 +217,7 @@ Dependancy graph: one-to-many
     d   
 */
 	let tt000 = {
-	       lhs : `{ a : { b, c, d } }`,
+	       lhs : `{ { a } : { b, c, d } }`,
 	       rhs : `one-to-many`
 	}
 ```
@@ -234,7 +234,7 @@ Dependancy graph: many-to-one
 */
 
 	let tt000 = {
-			lhs : `{ { b, c, d } : a }`,
+			lhs : `{ { b, c, d } : { a } }`,
 			rhs : `many-to-one`
 	}
 ```
@@ -251,7 +251,7 @@ Dependancy graph: An example
 */
 
 	let tt000 = {
-			lhs : `{ a : { b, c, d } : 1 : { d,e,f } }`,
+			lhs : `{ { a } : { b, c, d } : { 1 } : { d,e,f } }`,
 			rhs : `a-dependancy-graph-example`
 	}
 ```
@@ -280,12 +280,12 @@ Dependancy graph: Another example
 */
 
 	let tt000 = {
-			lhs : `{ num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } : { mult : '*' } : { num : 0 } }`,
+			lhs : `{ { num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } } : { mult : '*' } : { num : 0 } }`,
 			rhs : `{ product : 0 }`
 	}
 
 	let tt001 = {
-			lhs : `{ { num : 0 } : { mult : '*' } num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } }`,
+			lhs : `{ { num : 0 } : { mult : '*' } : { num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } } }`,
 			rhs : `{ product : 0 }`
 	}
 ```

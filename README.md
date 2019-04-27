@@ -293,7 +293,7 @@ Dependancy graph: Another example
     }
 
     let tt001 = {
-            lhs : `{ num : 0, op : { mult : '*', div : '/' }, num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } }`,
+            lhs : `{ { num, int, real } : 0, op : { mult : '*', div : '/' }, { num, int, real } : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } }`,
             rhs : `{ product : 0 }`
     }
 ```

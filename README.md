@@ -234,8 +234,8 @@ Dependancy graph: many-to-one
 */
 
 	let tt000 = {
-	       lhs : `{ { b, c, d } : a }`,
-	       rhs : `many-to-one`
+			lhs : `{ { b, c, d } : a }`,
+			rhs : `many-to-one`
 	}
 ```
 
@@ -243,16 +243,16 @@ Dependancy graph: An example
 
 ```javascript
 /* 
-   let a = { 
-             b : { 1 : { d,e,f },
-             c : { 1 : { d,e,f },
-             d : { 1 : { d,e,f },
-	   }
+    let a = { 
+			b : { 1 : { d,e,f },
+			c : { 1 : { d,e,f },
+			d : { 1 : { d,e,f },
+	}
 */
 
 	let tt000 = {
-	       lhs : `{ a : { b, c, d } : 1 : { d,e,f } }`,
-	       rhs : `a-dependancy-graph-example`
+			lhs : `{ a : { b, c, d } : 1 : { d,e,f } }`,
+			rhs : `a-dependancy-graph-example`
 	}
 ```
 
@@ -260,16 +260,33 @@ Dependancy graph: Another example
 
 ```javascript
 /* 
-   let a = { 
-             b : { 1 : { d,e,f },
-             c : { 1 : { d,e,f },
-             d : { 1 : { d,e,f },
-	   }
+   let _tt000 = { 
+			lhs : `{ num : 0, mult : '*', num : 0 },
+			rhs : `{ product : 0 }`,
+	}
+	
+   let _tt001 = { 
+			lhs : `{ num : 1, mult : '*', num : 0 },
+			rhs : `{ product : 0 }`,
+	}
+	
+	 . 
+	 .
+	 
+   let _tt023 = { 
+			lhs : `{ num : 0, mult : '*', num : 12 },
+			rhs : `{ product : 0 }`,
+	}
 */
 
 	let tt000 = {
-	       lhs : `{ num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } : { mult : '*'} : { num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 } } }`,
-	       rhs : `{ product : 0 }`
+			lhs : `{ num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } : { mult : '*' } : { num : 0 } }`,
+			rhs : `{ product : 0 }`
+	}
+
+	let tt001 = {
+			lhs : `{ { num : 0 } : { mult : '*' } num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } }`,
+			rhs : `{ product : 0 }`
 	}
 ```
 

@@ -266,6 +266,7 @@ Dependancy graph: Another example
 
 ```javascript
 /* -------------------------
+
    let _tt000 = { 
             lhs : `{ num : 0, mult : '*', num : 0 },
             rhs : `{ product : 0 }`,
@@ -283,6 +284,7 @@ Dependancy graph: Another example
             lhs : `{ num : 0, mult : '*', num : 12 },
             rhs : `{ product : 0 }`,
     }
+	
 ------------------------- */
 
     let tt000 = {

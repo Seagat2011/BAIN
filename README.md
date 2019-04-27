@@ -252,7 +252,7 @@ Dependancy graphs: An example
 
 	let tt000 = {
 	       lhs : `{ a : { b, c, d } : 1 : { d,e,f } }`,
-	       rhs : `many-to-one`
+	       rhs : `a-dependancy-graph-example`
 	}
 ```
 

@@ -206,7 +206,7 @@ To patch
 	vm.__patch( training_set2,training_set1 )
 ```
 
-Dependancy graphs: one-to-many
+Dependancy graph: one-to-many
 
 ```javascript
 /* 
@@ -222,7 +222,7 @@ Dependancy graphs: one-to-many
 	}
 ```
 
-Dependancy graphs: many-to-one
+Dependancy graph: many-to-one
 
 ```javascript
 /*
@@ -239,7 +239,7 @@ Dependancy graphs: many-to-one
 	}
 ```
 
-Dependancy graphs: An example
+Dependancy graph: An example
 
 ```javascript
 /* 
@@ -253,6 +253,23 @@ Dependancy graphs: An example
 	let tt000 = {
 	       lhs : `{ a : { b, c, d } : 1 : { d,e,f } }`,
 	       rhs : `a-dependancy-graph-example`
+	}
+```
+
+Dependancy graph: Another example
+
+```javascript
+/* 
+   let a = { 
+             b : { 1 : { d,e,f },
+             c : { 1 : { d,e,f },
+             d : { 1 : { d,e,f },
+	   }
+*/
+
+	let tt000 = {
+	       lhs : `{ num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } : { mult : '*'} : { num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 } } }`,
+	       rhs : `{ product : 0 }`
 	}
 ```
 

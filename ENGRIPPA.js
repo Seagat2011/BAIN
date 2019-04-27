@@ -91,11 +91,12 @@ var virtual_core = {
 	__memory_variable__:{},	//__memory_address__[ __memory_variable__['name'] ]//
 }
 var __AI__ = {
-	__SYNTAXER__
-	__LEXER__
-	__SEMANTICS__
+	__SYNTAXER__:{},
+	__LEXER__:{},
+	__SEMANTICS__:{},
 }
 var __STRATAGEM__ = ['arithmetic','logic','algorithmic'] //f(x);(a&&b)||c;[[a,b],[c]]:f(x)//
+/*
 var __OPCODES__ = [
 	`= ${self._param[0]}`,
 	`${self._param[0]} =`,
@@ -166,5 +167,6 @@ var __OPCODES__ = [
 	`?`,	`"`,	`:`,	`'`,
 	`--`,	
 ]
-__OPCODES__[`00`] = true//EOL//	
+*/
+var __OPCODES__ = { '00' : true }//EOL//	
 // INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]

@@ -243,15 +243,15 @@ Dependancy graphs: An example
 
 ```javascript
 /* 
-    b:1
-   /
- a - c:1
-   \
-    d:1   
+   let a = { 
+             b : { 1 : { d,e,f },
+             c : { 1 : { d,e,f },
+             d : { 1 : { d,e,f },
+	   }
 */
 
 	let tt000 = {
-	       lhs : `{ a : { b, c, d } : 1 }`,
+	       lhs : `{ a : { b, c, d } : 1 : { d,e,f } }`,
 	       rhs : `many-to-one`
 	}
 ```

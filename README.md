@@ -288,12 +288,12 @@ Dependancy graph: Another example
 ------------------------- */
 
     let tt000 = {
-            lhs : `{ { num, int, real } : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 }, mult : '*', { num, int, real } : 0 } }`,
+            lhs : `{ { num, int, real } : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 }, mult : '*', { num, int, real } : 0 }`,
             rhs : `{ product : 0 }`
     }
 
     let tt001 = {
-            lhs : `{ num : 0, op : { mult : '*', div : '/' }, num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } } }`,
+            lhs : `{ num : 0, op : { mult : '*', div : '/' }, num : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } }`,
             rhs : `{ product : 0 }`
     }
 ```
@@ -334,7 +334,7 @@ A string template example
     let training_set1 = [ tt000, tt001 ]
     
     let vm = new __ENGRIPPA__( training_set1 )
-    console.log( vm.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
+    console.log( vm.__exec([tt000]) ) // [{ msg : 'Hello' }] //
 ```
 
 To examine a runtime

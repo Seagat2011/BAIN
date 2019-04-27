@@ -206,7 +206,7 @@ To patch
     vm.__patch( training_set2,training_set1 )
 ```
 
-Dependancy graph: one-to-many
+Set Theory and/or Dependancy graph: one-to-many
 
 ```javascript
 /* -------------------------
@@ -280,15 +280,15 @@ Dependancy graph: Another example
      . 
      .
      
-   let _tt023 = { 
-            lhs : `{ num : 0, mult : '*', num : 12 },
+   let _tt075 = { 
+            lhs : `{ real : 0, mult : '*', real : 12 },
             rhs : `{ product : 0 }`,
     }
 	
 ------------------------- */
 
     let tt000 = {
-            lhs : `{ { num, int, real } : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 }, mult : '*', num : 0 } }`,
+            lhs : `{ { num, int, real } : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 }, mult : '*', { num, int, real } : 0 } }`,
             rhs : `{ product : 0 }`
     }
 

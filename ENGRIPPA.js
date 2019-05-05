@@ -114,8 +114,6 @@ var __OPCODES__ = [
 	`if( ${self._param[0]} ){`,
 	`self.param_block }`,
 	`if( ${self._param[0]} ){ ${self.param_block} }`,
-	`if( ${self._param[0]} ){ ${self.param_block} }`,
-	`if( ${self._param[0]} ){ ${self.param_block} }`,
 	`do{ ${self.param_block} }while( ${self._param[0]} );`,
 	`while( ${self._param[0]} ){ ${self.param_block} }`,
 	`for( ${self._param[0]} ; ${self._param[1]} ; ${self._param[2]} ){ ${self.param_block} }`,
@@ -123,7 +121,7 @@ var __OPCODES__ = [
 	`new`, `this`,	
 	`Date( ${self._param[0]} )`,
 	`Error( ${self._param[0]} )`,	
-	`Math`, `Number`, `RegExp`,	`String`,
+	`Math`, `Number`, `RegExp`, `String`,
 	`JSON.parse( ${self.param[0]} )`,
 	`JSON.stringify( ${self.param[0]},' ',2 )`,
 	

@@ -97,6 +97,14 @@ var __AI__ = {
 }
 var __STRATAGEM__ = ['arithmetic','logic','algorithmic'] //f(x);(a&&b)||c;[[a,b],[c]]:f(x)//
 /*
+var __ARITHMETIC_PROPERTIES__ = [
+  'Zero Identity', // 0*0=0,1-1=0,0=0
+  'Associative', // (5+(2+3))=((5+2)+3)
+  'Reflexive', // 0=2-2,2-2=0
+  'Distributive', // 1+1+0=2+0
+  'Commutative', // 2*3=6,3*2=6
+  'Inverse' // 5*1/5=1,6*1/6=1,2-2=0,-2+2=0
+]
 var __OPCODES__ = [
 	`= ${self._param[0]}`,
 	`${self._param[0]} =`,

@@ -26,63 +26,6 @@ NOTES
 		rhs : { product : 0 } 
 	}
 	
-	The engine first attempts 
-
-		- Arithmetic match
-		- Boolean match
-
-	...on the training set; if these methods fail, then a more powerful algorithmic combination is attempted
-	through analysis of the virtual Core's Program Status Word Register flags (PSW)
-
-EXAMPLE
-	let engine = new __ENGRIPPA__( [ training_set ] ) 
-	let result = engine.exec( [ { num : 0, times : `*`, num : 0 } ] ) //[ {...}, ...]//
-	console.log( result[0] ) //{ product : 0 }//
-
-EXAMPLE
-	let tt000 = { 
-		lhs:{ num : 0, times : `*`, num : 0 }, 
-		rhs:{ product : 0 } }
-	let tt001 = { 
-		lhs:{ num : 0, times : `*`, num : 1 }, 
-		rhs:{ product : 0 } }
-	let tt002 = { 
-		lhs:{ num : 0, times : `*`, num : 2 }, 
-		rhs:{ product : 0 } }
-	.
-	.
-	let tt144 = { 
-		lhs:{ num : 12, times : `*`, num : 12 }, 
-		rhs:{ product : 144 } }	
-	let engine = new __ENGRIPPA__( [ tt000,...,tt144 ] )
-	.
-	.
-	let tt_unk = { num:120, times:`*`, num:120 }
-	let result = engine.exec( [ tt_unk ] ) 
-	console.log( result[0] ) //{ product : 14400 }//
-
-EXAMPLE
-	let tt000 = { 
-		lhs:{ product : 0 }, 
-		rhs:{ num : 0, times : `*`, num : 0 } }
-	let tt001 = { 
-		lhs:{ product : 0 }, 
-		rhs:{ num : 0, times : `*`, num : 1 } }
-	let tt002 = { 
-		lhs:{ product : 0 }, 
-		rhs:{ num : 0, times : `*`, num : 2 } }
-	.
-	.
-	let tt144 = { 
-		lhs:{ product : 144 }, 
-		rhs:{ num : 12, times : `*`, num : 12 } }	
-	let engine = new __ENGRIPPA__( [ tt000,...,tt144 ] )
-	.
-	.
-	let tt_unk = { product:1440 }
-	let result = engine.exec( [ tt_unk ],`converge` ) //iff multiple solutions, converge on first answer//
-	console.log( result[0] ) //{ num:120, times:`*`, num:12 }//
-
 */
 var virtual_core = {
 	__stack__ :[], 		//__stack__[ 32535 ]//

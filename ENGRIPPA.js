@@ -126,5 +126,8 @@ function __ENGRIPPA__(arr){
   this.__serialize
   this.__deserialize
   this.__decompile
+  this.__patch
+  this.__exec
+  this.__e308658a // encoder/decoder
 }
 // INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]

@@ -121,4 +121,10 @@ var __OPCODES__ = [
 ]
 */
 var __OPCODES__ = { '00' : true }//EOL//	
+function __ENGRIPPA__(arr){
+  this.__extend
+  this.__serialize
+  this.__deserialize
+  this.__decompile
+}
 // INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]

@@ -262,7 +262,7 @@ Dependancy graph: An example
     }
 ```
 
-Dependancy graph: Another example
+Dependancy graph: Another example lists [] to enforce correct order
 
 ```javascript
 /* -------------------------
@@ -288,13 +288,18 @@ Dependancy graph: Another example
 ------------------------- */
 
     let tt000 = {
-            lhs : `{ { num, int, real } : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 }, mult : '*', { num, int, real } : 0 }`,
+            lhs : `{ [ num, int, real ] : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 }, op : { mult : '*' }, [ num, int, real ] : 0 }`,
             rhs : `{ product : 0 }`
     }
 
     let tt001 = {
-            lhs : `{ { num, int, real } : 0, op : { mult : '*', div : '/' }, { num, int, real } : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } }`,
+            lhs : `{ [ num, int, real ] : 0, op : { mult : '*', div : '/' }, [ num, int, real ] : { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12 } }`,
             rhs : `{ product : 0 }`
+    }
+
+    let tt002 = {
+            lhs : `{ [ num, int, real ] : { 0 }, op : { '*', '/', '+', '-' }, [ num, int, real ] : { 0 } }`,
+            rhs : `{ result : 0 }`
     }
 ```
 

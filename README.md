@@ -262,7 +262,7 @@ Dependancy graph: An example
     }
 ```
 
-Dependancy graph: Another example lists [] to enforce correct sequence 
+Dependancy graph: Another example using lists [] to enforce correct sequence 
 
 ```javascript
 /* -------------------------

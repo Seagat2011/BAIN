@@ -89,7 +89,7 @@ A reverse multiplication table
     let tt_unk = `{ product : 144 }`
     let result00 = vm.__exec( [ tt_unk ] ) 
     let result01 = vm.__exec( [ tt_unk ],'converge' ) //iff many solutions//
-    console.log( result00 )   // [`{ num : 12, mult : '*', num : 12 }`, ... ] //
+    console.log( result00 ) // [`{ num : 12, mult : '*', num : 12 }`, ... ] //
     console.log( result01 ) // [`{ num : 12, mult : '*', num : 12 }`] //
 ```
 

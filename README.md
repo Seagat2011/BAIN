@@ -40,23 +40,51 @@ An instantiation example
     console.log( result[0] ) // `{ product : 0 }` //
 ```
 
+Training sets consist of (unordered) Sets {} and / or (ordered) Lists [], along with optional value-pairs
+
+```javascript 
+    `{ "type" }`
+    `{ 'type' }`
+    `{ type }`
+    `[ "type" ]`
+    `[ 'type' ]`
+    `[ type ]`
+    `{ 'type' }`
+    `{ "type" : value }`
+    `{ 'type' : value }`
+    `{ type : value }`
+    `{ type : 'value' }`
+    `{ type : "value" }`
+```
+
+Using Sets {} and Lists []
+
+```javascript 
+    let tt000 = { 
+           lhs : `{ num : 0, plus : '+', num : 0 }`, 
+           rhs : `{ result : 0 }` }
+    let tt001 = { 
+           lhs : `[ num : 5, minus : '-', num : 3 ]`, 
+           rhs : `{ result : 2 }` }
+```
+
 A basic multiplication table
 
 ```javascript 
     let tt000 = { 
-        lhs : `{ num : 0, mult : '*', num : 0 }`, 
-        rhs : `{ product : 0 }` }
+           lhs : `{ num : 0, mult : '*', num : 0 }`, 
+           rhs : `{ product : 0 }` }
     let tt001 = { 
-        lhs : `{ num : 0, mult : '*', num : 1 }`, 
-        rhs : `{ product : 0 }` }
+           lhs : `{ num : 0, mult : '*', num : 1 }`, 
+           rhs : `{ product : 0 }` }
     let tt002 = { 
-        lhs : `{ num : 0, mult : '*', num : 2 }`, 
-        rhs : `{ product : 0 }` }
+           lhs : `{ num : 0, mult : '*', num : 2 }`, 
+           rhs : `{ product : 0 }` }
      .
      .
     let tt144 = { 
-        lhs : `{ num : 12, mult : '*', num : 12 }`, 
-        rhs : `{ product : 144 }` }
+           lhs : `{ num : 12, mult : '*', num : 12 }`, 
+           rhs : `{ product : 144 }` }
     let training_set = [ tt000,...,tt144 ]
     let vm = new __ENGRIPPA__( training_set )
      .
@@ -70,19 +98,19 @@ A reverse multiplication table
 
 ```javascript 
     let tt000 = { 
-        lhs : `{ product : 0 }`, 
-        rhs : `{ num : 0, mult : '*', num : 0 }` }
+           lhs : `{ product : 0 }`, 
+           rhs : `{ num : 0, mult : '*', num : 0 }` }
     let tt001 = { 
-        lhs : `{ product : 0 }`, 
-        rhs : `{ num : 0, mult : '*', num : 1 }` }
+           lhs : `{ product : 0 }`, 
+           rhs : `{ num : 0, mult : '*', num : 1 }` }
     let tt002 = { 
-        lhs : `{ product : 0 }`, 
-        rhs : `{ num : 0, mult : '*', num : 2 }` }
+           lhs : `{ product : 0 }`, 
+           rhs : `{ num : 0, mult : '*', num : 2 }` }
      .
      .
     let tt144 = { 
-        lhs : `{ product : 144 }`, 
-        rhs : `{ num : 12, mult : '*', num : 12 }` }
+           lhs : `{ product : 144 }`, 
+           rhs : `{ num : 12, mult : '*', num : 12 }` }
     let training_set = [ tt000,...,tt144 ]
     let vm = new __ENGRIPPA__( training_set )
      .
@@ -95,12 +123,12 @@ A reverse multiplication table
     console.log( result01 ) // [`{ num : 12, mult : '*', num : 12 }`] //
 ```
 
-An example using Arrays to add additional dimensional components (eg Time)
+An example using Lists [] to add additional dimensional components (eg Time)
 
 ```javascript 
     let tt000 = {
-        lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, { freq : 0x46, amp : 0x6, time_slice : 0x1 }, ... }]`,
-        rhs : `{ msg : 'Hello' }`
+           lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, { freq : 0x46, amp : 0x6, time_slice : 0x1 }, ... }]`,
+           rhs : `{ msg : 'Hello' }`
     }
 ```
 

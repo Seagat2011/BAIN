@@ -40,36 +40,6 @@ An instantiation example
     console.log( result[0] ) // `{ product : 0 }` //
 ```
 
-Training sets consist of (unordered) Sets {} and / or (ordered) Lists [], along with optional value-pairs
-
-```javascript 
-    `{ "type" }`
-    `{ 'type' }`
-    `{ type }`
-    `[ "type" ]`
-    `[ 'type' ]`
-    `[ type ]`
-    `{ "type" : value }`
-    `{ 'type' : value }`
-    `{ type : value }`
-    `{ type : 'value' }`
-    `{ type : "value" }`
-```
-
-Using Sets {} and Lists []
-
-```javascript 
-    let tt000 = { 
-           lhs : `{ num : 0, plus : '+', num : 0 }`, 
-           rhs : `{ result : 0 }` 
-    }
-
-    let tt001 = { 
-           lhs : `[ num : 5, minus : '-', num : 3 ]`, 
-           rhs : `{ result : 2 }` 
-    }
-```
-
 A basic multiplication table
 
 ```javascript 
@@ -125,13 +95,22 @@ A reverse multiplication table
     console.log( result01 ) // [`{ num : 12, mult : '*', num : 12 }`] //
 ```
 
-An example using Lists [] to add additional dimensional components (eg Time)
+A subtraction table
 
 ```javascript 
-    let tt000 = {
-           lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, { freq : 0x46, amp : 0x6, time_slice : 0x1 }, ... }]`,
-           rhs : `{ msg : 'Hello' }`
+    let tt000 = { 
+           lhs : `[ num : 2, minus : '-', num : 1 ]`, 
+           rhs : `{ result : 1 }` 
     }
+
+    let tt001 = { 
+           lhs : `[ num : 5, minus : '-', num : 3 ]`, 
+           rhs : `{ result : 2 }` 
+    }
+    
+    let training_set = [ tt000,tt001 ]
+    
+    let vm = new __ENGRIPPA__( training_set )
 ```
 
 A speech training example
@@ -275,7 +254,7 @@ Dependancy graph: many-to-one
     }
 ```
 
-Dependancy graph: An example
+Dependancy graph: many-to-one
 
 ```javascript
 /* -----------------------------
@@ -294,7 +273,7 @@ Dependancy graph: An example
     }
 ```
 
-Dependancy graph: Another example using Lists [] for sequence coercion 
+Dependancy graph: a condensed multiplication table 
 
 ```javascript
 /* -------------------------
@@ -302,12 +281,12 @@ Dependancy graph: Another example using Lists [] for sequence coercion
    let _tt000 = { 
             lhs : `{ num : 0, mult : '*', num : 0 },
             rhs : `{ product : 0 }`,
-    }
+   }
     
    let _tt001 = { 
             lhs : `{ num : 1, mult : '*', num : 0 },
             rhs : `{ product : 0 }`,
-    }
+   }
     
      . 
      .
@@ -315,7 +294,7 @@ Dependancy graph: Another example using Lists [] for sequence coercion
    let _tt075 = { 
             lhs : `{ real : 0, mult : '*', real : 12 },
             rhs : `{ product : 0 }`,
-    }
+   }
 	
 ------------------------- */
 

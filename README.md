@@ -49,7 +49,6 @@ Training sets consist of (unordered) Sets {} and / or (ordered) Lists [], along 
     `[ "type" ]`
     `[ 'type' ]`
     `[ type ]`
-    `{ 'type' }`
     `{ "type" : value }`
     `{ 'type' : value }`
     `{ type : value }`

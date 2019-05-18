@@ -92,7 +92,6 @@ A reverse multiplication table
     let result00 = vm.__exec( [ tt_unk ] ) 
     let result01 = vm.__exec( [ tt_unk ],'converge' ) //iff many solutions, converge on first solution//
     console.log( result00 )   // [`{ num : 12, mult : '*', num : 12 }`, ... ] //
-    console.log( result00[0] ) // `{ num : 12, mult : '*', num : 12 }` //
     console.log( result01 ) // [`{ num : 12, mult : '*', num : 12 }`] //
 ```
 

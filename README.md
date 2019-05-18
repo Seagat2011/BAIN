@@ -291,7 +291,7 @@ Dependancy graph: An example
     }
 ```
 
-Dependancy graph: Another example using lists [] for sequence coercion 
+Dependancy graph: Another example using Lists [] for sequence coercion 
 
 ```javascript
 /* -------------------------

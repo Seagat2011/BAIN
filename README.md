@@ -274,7 +274,7 @@ Dependancy graph: many-to-one
     }
 ```
 
-Dependancy graph: a condensed multiplication table 
+A condensed multiplication table 
 
 ```javascript
 /* -------------------------

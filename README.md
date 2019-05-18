@@ -218,7 +218,7 @@ To patch
     vm.__patch( training_set2,training_set1 )
 ```
 
-Set Theory and/or Dependancy graph: one-to-many
+Dependancy graph: one-to-many
 
 ```javascript
 /* -------------------------

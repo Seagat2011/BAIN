@@ -57,6 +57,7 @@ A basic multiplication table
     let tt144 = { 
            lhs : `{ num : 12, mult : '*', num : 12 }`, 
            rhs : `{ product : 144 }` }
+
     let training_set = [ tt000,...,tt144 ]
     let vm = new __ENGRIPPA__( training_set )
      .

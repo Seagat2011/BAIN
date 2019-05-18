@@ -61,10 +61,13 @@ Using Sets {} and Lists []
 ```javascript 
     let tt000 = { 
            lhs : `{ num : 0, plus : '+', num : 0 }`, 
-           rhs : `{ result : 0 }` }
+           rhs : `{ result : 0 }` 
+    }
+
     let tt001 = { 
            lhs : `[ num : 5, minus : '-', num : 3 ]`, 
-           rhs : `{ result : 2 }` }
+           rhs : `{ result : 2 }` 
+    }
 ```
 
 A basic multiplication table

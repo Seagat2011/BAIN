@@ -42,6 +42,8 @@ var __STRATAGEM__ = ['arithmetic','logic','algorithmic'] //f(x);(a&&b)||c;[[a,b]
 /*
 var __ARITHMETIC_PROPERTIES__ = [
   'Zero Identity', // 0*0=0,1-1=0,0=0
+  'Idempotence', // a|false,a+a=a,a*a=a
+  'Duality', // a'+b'=ab,(ab)'=a+b
   'Associative', // (5+(2+3))=((5+2)+3)
   'Reflexive', // 0=2-2,2-2=0
   'Distributive', // (1+1)+0=(2)+0

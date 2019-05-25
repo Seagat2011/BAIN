@@ -24,7 +24,7 @@ The engine first attempts
 - Arithmetic match (F = <((0)^(1))+(,((2)^(3))\*)\*...>+ whereby the functions, (0) to (N), generate numbers from the Rational Number field, Q. This recursive construct is used to model any number-generating function in mathematics
 - Boolean match (DNF,CNF,Series)
 
-If these attempts fail, a more powerful algorithmic combination is attempted on the training sets by matching features the training set displays against aspects of the above methods 
+If these attempts fail, a more powerful algorithmic combination is attempted on the training sets by matching and then, partially modeling, features that the training set displays against aspects of the above methods 
 
 An instantiation example
 

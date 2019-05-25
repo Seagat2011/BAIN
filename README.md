@@ -19,6 +19,14 @@ All training sets must be separated into right hand side / left hand side assert
     }
 ```
 
+The engine first attempts 
+
+- Arithmetic match (F = <(U^V)+,...>+ where U'0 to U'n, and V'0 to V'n represent numbers in the Rational Number field 
+,Q. This recursive construct is used to model any number-generating function in mathematics 
+- Boolean match (DNF,CNF,Series)
+
+If these attempts fail, a more powerful algorithmic combination is attempted on the training sets 
+
 An instantiation example
 
 ```javascript 

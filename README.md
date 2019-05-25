@@ -21,7 +21,7 @@ All training sets must be separated into right hand side / left hand side assert
 
 The engine first attempts 
 
-- Arithmetic match (F = <((0)^(1))+(,((2)^(3))*)*...>+ where (0) to Infinity represent numbers in the Rational Number field 
+- Arithmetic match (F = <((0)^(1))+(,((2)^(3))\*)\*...>+ where (0) to (N) represent numbers in the Rational Number field 
 ,Q. This recursive construct is used to model any number-generating function in mathematics
 - Boolean match (DNF,CNF,Series)
 

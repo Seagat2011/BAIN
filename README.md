@@ -21,7 +21,7 @@ All training sets must be separated into right hand side / left hand side assert
 
 The engine first attempts 
 
-- Arithmetic match (F = <((0)^(1))+(,((2)^(3))\*)\*...> whereby the functions, (0) to (N), generate numbers from the Rational Number field, Q. This recursive construct is used to model any number-generating function in mathematics
+- Arithmetic match (F = <((0)^(1))+(,((2)^(3))\*)\*...> whereby the functors, (0) to (N), map to the functions, (N) = f + g -- which generate numbers from the Rational Number field, Q. This recursive construct is used to model any number-generating function in mathematics
 - Boolean match (DNF,CNF,Series)
 
 If these attempts fail, a more powerful algorithmic combination is attempted on the training sets by matching and then, partially modeling, features that the training set displays against aspects of the above methods 

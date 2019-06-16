@@ -15,7 +15,7 @@ DESCRIPTION
 
 USAGE
 	let engine = new __ENGRIPPA__( [ {json training set...} ] ]) 
-	let result = engine.exec( [ {json training set...} ] ) // [ {...}, ...]
+	let result = engine.__exec( [ {json training set...} ] ) // [ {...}, ...]
 	console.log( result[0] ) // [ {desired json output...} ] //
 
 NOTES

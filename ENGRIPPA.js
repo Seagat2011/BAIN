@@ -22,8 +22,8 @@ NOTES
 	All training sets must be separated into right hand side / left hand Side (rhs/lhs) assertions: 
 	
 	var training_set = { 
-		lhs : { num : 0, times : `*`, num : 0 }, 
-		rhs : { product : 0 } 
+		lhs : `{ num : 0, times : '*', num : 0 }`, 
+		rhs : `{ product : 0 }` 
 	}
 	
 */

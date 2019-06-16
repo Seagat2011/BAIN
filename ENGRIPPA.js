@@ -19,7 +19,7 @@ USAGE
 	console.log( result[0] ) // [ {desired json output...} ] //
 
 NOTES
-	All training sets must be separated in right hand side / left hand Side (rhs/lhs) assertions: 
+	All training sets must be separated into right hand side / left hand Side (rhs/lhs) assertions: 
 	
 	var training_set = { 
 		lhs : { num : 0, times : `*`, num : 0 }, 

@@ -1,6 +1,6 @@
 # ENGRIPPA
 
-ENGRIPPA is an artificial intelligence engine which spawns virtual machines, intended as alternative for artificial neural networks.   
+ENGRIPPA is an artificial intelligence engine which spawns virtual machines, intended as an alternative for artificial neural networks.   
 
 ### USAGE
 

@@ -122,7 +122,8 @@ var __OPCODES__ = [
 	`--`,
 ]
 */
-var __OPCODES__ = { '00' : true }//EOL//	
+var __OPCODES__ = { '00' : true } //EOL//
+
 function __ENGRIPPA__(test_case) {
 
     function __EGRIPP__() {
@@ -143,57 +144,52 @@ function __ENGRIPPA__(test_case) {
         ',': true,
         ' ': true,
     }
-
-    lexbuff = new __EGRIPP__()
+    var lexbuff = new __EGRIPP__()
     test_case.map((u,i)=>{
-        u.map((v,j)=>{
-            var b = ''
-            var c = []
-            var d = ''
-            var e = []
-            // LHS //
-            v.lhs.split('').map((w)=>{
-                if (w === ' ') {
-                    if (b) {
-                        c.push(b)
-                        b = ''
-                    }
-                } else if (w in LEXEME) {
-                    if (b) {
-                        c.push(b)
-                        b = ''
-                    }
-                    c.push(w)
-                } else {
-                    b += w
+        var b = ''
+        var c = []
+        var d = ''
+        var e = []
+        u.lhs.split('').map((w)=>{
+            if (w === ' ') {
+                if (b) {
+                    c.push(b)
+                    b = ''
                 }
-                return w
-            }
-            )
-            lexbuff.lhs.push(c)
-            // RHS //
-            v.rhs.split('').map((w)=>{
-                if (w === ' ') {
-                    if (d) {
-                        e.push(d)
-                        d = ''
-                    }
-                } else if (w in LEXEME) {
-                    if (d) {
-                        e.push(d)
-                        d = ''
-                    }
-                    e.push(w)
-                } else {
-                    d += w
+            } else if (w in LEXEME) {
+                if (b) {
+                    c.push(b)
+                    b = ''
                 }
-                return w
+                c.push(w)
+            } else {
+                b += w
             }
-            )
-            lexbuff.rhs.push(e)
-            return u
+            return w
         }
         )
+        lexbuff.lhs.push(c)
+        // RHS //
+        u.rhs.split('').map((w)=>{
+            if (w === ' ') {
+                if (d) {
+                    e.push(d)
+                    d = ''
+                }
+            } else if (w in LEXEME) {
+                if (d) {
+                    e.push(d)
+                    d = ''
+                }
+                e.push(w)
+            } else {
+                d += w
+            }
+            return w
+        }
+        )
+        lexbuff.rhs.push(e)
+        return u
     }
     )
 
@@ -466,11 +462,21 @@ function __ENGRIPPA__(test_case) {
         )
         return result
     }
-    GRAMMAR.__decompile = function() { console.info(`__ENGRIPPA__.__decompile - Functionality not yet implemented.`) }
-    GRAMMAR.__serialize = function() { console.info(`__ENGRIPPA__.__serialize - Functionality not yet implemented.`) }
-    GRAMMAR.__deserialize = function() { console.info(`__ENGRIPPA__.__deserialize - Functionality not yet implemented.`) }
-    GRAMMAR.__patch = function() { console.info(`__ENGRIPPA__.__patch - Functionality not yet implemented.`) }
-    GRAMMAR.__extend = function() { console.info(`__ENGRIPPA__.__extend - Functionality not yet implemented.`) }
+    GRAMMAR.__decompile = function() {
+        console.info(`__ENGRIPPA__.__decompile - Functionality not yet implemented.`)
+    }
+    GRAMMAR.__serialize = function() {
+        console.info(`__ENGRIPPA__.__serialize - Functionality not yet implemented.`)
+    }
+    GRAMMAR.__deserialize = function() {
+        console.info(`__ENGRIPPA__.__deserialize - Functionality not yet implemented.`)
+    }
+    GRAMMAR.__patch = function() {
+        console.info(`__ENGRIPPA__.__patch - Functionality not yet implemented.`)
+    }
+    GRAMMAR.__extend = function() {
+        console.info(`__ENGRIPPA__.__extend - Functionality not yet implemented.`)
+    }
     GRAMMAR.__includes = expand_lexeme({}, lexbuff.lhs, 0, lexbuff.rhs)
 
     return GRAMMAR
@@ -478,22 +484,22 @@ function __ENGRIPPA__(test_case) {
 }
 // end __ENGRIPPA__
 
-var test_case = [[{
+var test_case = [{
     lhs: `['qid':qval,'qid':'qval','qid':qval]`,
     rhs: `[ 'qid':qval ]`
-}], [{
+}, {
     lhs: `{ ' qid ' : qval , ' qid ' : ' qval ' , ' qid ' : qval }`,
     rhs: `{ 'qid':qval }`
 }, {
     lhs: `{ ' qid ' : qval , ' qid ' : ' qval ' , ' qid ' : qval , ' qid ' : ' qval ' , ' qid ' : qval }`,
     rhs: `{ 'id':qval }`
-}, ], [{
+}, , {
     lhs: `{ { ' qid ' , ' qid ' , { ' qid ' : ' qval ' } } : qval , ' qid ' : ' qval ' , { ' qid ' , ' qid ' , ' qid ' } : qval }`,
     rhs: `{ id:{ 'id':qval } }`
-}], [{
+}, {
     lhs: `{ [ ' qid ' , ' qid ' , ' qid ' ] : qval , id : { ' qval ' , ' qval ' , ' qval ' } , [ ' qid ' , ' qid ' , ' qid ' ] : qval }`,
     rhs: `{ 'id':qval }`
-}], ]
+}]
 
 var test = [`{ [ ' qid ' , ' qid ' , ' qid ' ] : qval , id : { ' qval ' , ' qval ' , ' qval ' } , [ ' qid ' , ' qid ' , ' qid ' ] : qval }`]
 

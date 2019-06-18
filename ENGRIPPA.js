@@ -497,4 +497,6 @@ var test_case = [[{
 var test = [`{ [ ' qid ' , ' qid ' , ' qid ' ] : qval , id : { ' qval ' , ' qval ' , ' qval ' } , [ ' qid ' , ' qid ' , ' qid ' ] : qval }`]
 
 var vm = new __ENGRIPPA__(test_case)
-vm.__exec(test)// INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]
+vm.__exec(test)
+
+// INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]

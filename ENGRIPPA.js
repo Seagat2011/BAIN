@@ -133,17 +133,18 @@ function __ENGRIPPA__(test_case) {
 
     // ---------------------------------------------------- LEXICAL ANALYSIS ---------------------------------------------------- //
     var LEXEME = {
-        "'": 1,
-        '"': 1,
-        '[': 1,
-        ']': 1,
-        '{': 1,
-        '}': 1,
-        ':': 1,
-        ',': 1,
-        ' ': 1,
+        "'": true,
+        '"': true,
+        '[': true,
+        ']': true,
+        '{': true,
+        '}': true,
+        ':': true,
+        ',': true,
+        ' ': true,
     }
-    var lexbuff = new __EGRIPP__()
+
+    lexbuff = new __EGRIPP__()
     test_case.map((u,i)=>{
         u.map((v,j)=>{
             var b = ''

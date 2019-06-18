@@ -147,7 +147,10 @@ function __ENGRIPPA__(test_case) {
     test_case.map((u,i)=>{
         u.map((v,j)=>{
             var b = ''
-            c = []
+            var c = []
+            var d = ''
+            var e = []
+            // LHS //
             v.lhs.split('').map((w)=>{
                 if (w === ' ') {
                     if (b) {
@@ -163,9 +166,31 @@ function __ENGRIPPA__(test_case) {
                 } else {
                     b += w
                 }
+                return w
             }
             )
             lexbuff.lhs.push(c)
+            // RHS //
+            v.rhs.split('').map((w)=>{
+                if (w === ' ') {
+                    if (d) {
+                        e.push(d)
+                        d = ''
+                    }
+                } else if (w in LEXEME) {
+                    if (d) {
+                        e.push(d)
+                        d = ''
+                    }
+                    e.push(w)
+                } else {
+                    d += w
+                }
+                return w
+            }
+            )
+            lexbuff.rhs.push(e)
+            return u
         }
         )
     }
@@ -247,6 +272,7 @@ function __ENGRIPPA__(test_case) {
         },
     }
     var synbuff = new __EGRIPP__()
+    // LHS //
     lexbuff.lhs.map((w,i)=>{
         SYNTAX.PSW = new __PSW__()
         var c = []
@@ -265,6 +291,25 @@ function __ENGRIPPA__(test_case) {
         return w
     }
     )
+    // RHS //
+    lexbuff.rhs.map((w,i)=>{
+        SYNTAX.PSW = new __PSW__()
+        var c = []
+        w.map((u,j)=>{
+            var u_exists_in_lexeme = (u in SYNTAX)
+            if (u_exists_in_lexeme) {
+                SYNTAX[u](u)
+            } else {
+                u = SYNTAX.PSW.tokenscope.scope
+            }
+            c.push(u)
+            return u
+        }
+        )
+        synbuff.rhs.push(c)
+        return w
+    }
+    )
 
     // ---------------------------------------------------- SEMANTIC ANALYSIS ---------------------------------------------------- //
 
@@ -278,118 +323,13 @@ function __ENGRIPPA__(test_case) {
         self.rhs.idx = 0
     }
     __GRAMMAR__.prototype = []
-    var g_no_solution_found = true
-    function global_solution_monitor(e) {
-        if ('target'in e.data) {
-            var host = e.data
-            var status = host.unsolved_status
-            switch (host.target) {
-            case 'global-solution-update':
-                g_no_solution_found = status
-                break
-            }
-        }
-    }
-    addEventListener('message', global_solution_monitor, false)
-    Object.prototype.deep_parse = function(me, GRAMMAR, too) {
-        var self = this
-        if (g_no_solution_found) {
-            var src = too ? [...self, ...too] : [...self];
-            while (me[0] == src[0]) {
-                me.shift()
-                src.shift()
-            }
-            var scope_completed = ((me.length == 0) && (src.length == 0)) ? true : false;
-            var jmp_scope = (!scope_completed && src[0].match(/^_/)) ? src[0] : '';
-            var unsolved_solution = (g_no_solution_found == true)
-            var program_status_word = [scope_completed ? '1' : '0', jmp_scope ? '1' : '0', unsolved_solution ? '1' : '0', ].join('')
-            switch (program_status_word) {
-            case '000':
-                /* !scope_completed && !jmp_scope && !unsolved_solution */
-            case '010':
-                /* !scope_completed && jmp_scope && !unsolved_solution */
-            case '100':
-                /* scope_completed && !jmp_scope && !unsolved_solution */
-            case '110':
-                /* scope_completed && jmp_scope && !unsolved_solution */
-                // NOP //
-                break
-
-            case '001':
-                /* !scope_completed && !jmp_scope && unsolved_solution */
-                // NOP - console.info(`Semantic Parse Error: unexpected token ' ${me[0]} ' encountered - no solution found.`) //
-                break
-
-            case '011':
-                /* !scope_completed && jmp_scope && unsolved_solution */
-                var w = me[0]
-                src.shift()
-                !(jmp_scope in GRAMMAR) && self.assert(false, {
-                    msg: `Semantic Parse Error: unexpected token ' ${w} ' at index ???`
-                });
-                var j = GRAMMAR[jmp_scope].length - 1
-                var code = []
-                while (j + 1) {
-                    code.push(`GRAMMAR[jmp_scope][${j--}].deep_parse([...me],GRAMMAR,src)`)
-                }
-                code.length && eval(code.join('\n'))
-                break
-
-            case '101':
-                /* scope_completed && !jmp_scope && unsolved_solution */
-            case '111':
-                /* scope_completed && jmp_scope && unsolved_solution */
-                postMessage({
-                    target: 'global-solution-update',
-                    unsolved_status: false
-                })
-                break
-
-            default:
-                break
-            }
-        }
-    }
-    Object.prototype.parse = function(me, i) {
-        var self = this
-        var idx = i || 0
-        var w = me[idx]
-        var first_tok = {
-            '[': '_[_',
-            '{': '_{_'
-        };
-        ((idx == 0) && (w in first_tok)) || self.assert(false, {
-            msg: `Semantic Parse Error: unexpected token ' ${w} ' encountered at index ${idx}`
-        });
-        (idx == 0) && (w in first_tok) && (w = first_tok[w])
-        if (w in self) {
-            var code = []
-            var j = self[w].length - 1
-            while (j + 1) {
-                code.push(`self[w][${j--}].deep_parse(me,self)`)
-            }
-            eval(code.join('\n'))
-        } else {
-            self.assert(false, {
-                msg: `Semantic Parse Error: unexpected token ' ${w} ' at index ${idx}`
-            })
-        }
-        return (g_no_solution_found && true)
-    }
-    Object.prototype.assert = function(v, o) {
-        if (v == false) {
-            console.info(`Scan aborted:`)
-            throw Error(o.msg)
-        }
-    }
-    Object.prototype.add = function(u, j, k) {
+    Object.prototype.add = function(u, j, k, i) {
         var self = this;
         (self.length < k + 1) && self.push({})
         var src = self[k]
         !(u in src) && (src[u] = {})
         var srcu = src[u]
-        !(j in srcu) && (srcu[j] = 0)
-        srcu[j]++
+        !(j in srcu) && (srcu[j] = (k == i) ? 'eos' : true)
     }
     Object.prototype.forEachOwnElement = function(cb) {
         var self = this
@@ -433,43 +373,104 @@ function __ENGRIPPA__(test_case) {
         }
         return result
     }
-    synbuff.lhs.map((w,idx,me)=>{
+    function expand_lexeme(g, u, i, v) {
+        function expand(x, gg, k, ii, II, vv) {
+            if (ii < II) {
+                var uu = x[ii];
+                (uu in gg) || (gg[uu] = {})
+                if ((ii + 1) == II) {
+                    gg[uu]['eos'] = vv[k]
+                }
+                expand(x, gg[uu], k, (ii + 1), II, vv)
+            }
+            return gg
+        }
+        var I = u.length
+        while (i < I) {
+            var isArrayType = (u instanceof Array)
+            var isSubArrayType = (u[i]instanceof Array)
+            if (isSubArrayType) {
+                var j = 0
+                var J = u[i].length
+                expand(u[i], g, i, j, J, v)
+            } else if (isArrayType) {
+                expand(u, g, 0, i, I, v)
+            }
+            i++
+        }
+        return g
+    }
+    lexbuff.lhs.map((w,idx,me)=>{
         !GRAMMAR && (GRAMMAR = new __GRAMMAR__())
+        var i = w.length - 1
         w.map((u,idy,too)=>{
-            GRAMMAR.lhs.add(u, idx, idy)
+            GRAMMAR.lhs.add(u, idx, idy, i)
             return u
         }
         )
         return w
     }
     )
-
-    GRAMMAR.__exec = function(test) {
-        var self = this
-        var ii = 0
-        var II = test.length
-        var JJ = self.lhs.length;
-        (II <= JJ) || self.assert({
-            msg: `Semantic Parse Error: unexpected overall (extended) stream length. Implementation not available. Please update engrippa.`
-        })
-        while ((ii < II) && self.lhs.next(test[ii++]))
-            ;
-        if (ii == II) {
-            console.info('Semantic Engine - parse successfull.')
+    GRAMMAR.__LEXER__priv = function(tests) {
+        var b = ''
+        var result = []
+        tests.map((u)=>{
+            var test = [];
+            u.split('').map((w)=>{
+                if (w === ' ') {
+                    if (b) {
+                        test.push(b)
+                        b = ''
+                    }
+                } else if (w in LEXEME) {
+                    if (b) {
+                        test.push(b)
+                        b = ''
+                    }
+                    test.push(w)
+                } else {
+                    b += w
+                }
+                return w
+            }
+            )
+            result.push(test)
         }
+        )
+        return result
     }
-    GRAMMAR.__decompile = function() {
+    GRAMMAR.__exec = function(tests) {
+        var self = this
+        var code = []
+        var ii = 0
+        var m = self.__LEXER__priv(tests)
+        var result = [];
+        m.map((test)=>{
+            var II = test.length
+            var JJ = self.lhs.length;
+            (II <= JJ) || self.assert({
+                msg: `Semantic Parse Error: unexpected overall (extended) stream length. Implementation not available. Please update Engrippa.`
+            })
+            while ((ii < II) && self.lhs.next(test[ii++])) {
+                code.push(test[(ii - 1)])
+            }
+            if (ii == II) {
+                var str = eval(`self.__includes[\`${code.join('\`][\`')}\`][\`eos\`].join(' ')`)
+                console.info(str)
+                console.info('Semantic Engine - parse successfull.')
+                result.push(str)
+            }
+            return test
+        }
+        )
+        return result
     }
-    GRAMMAR.__serialize = function() {
-    }
-    GRAMMAR.__deserialize = function() {
-    }
-    GRAMMAR.__patch = function() {
-    }
-    GRAMMAR.__extend = function() {
-    }
-    GRAMMAR.__includes = function() {
-    }
+    GRAMMAR.__decompile = function() { console.info(`__ENGRIPPA__.__decompile - Functionality not yet implemented.`) }
+    GRAMMAR.__serialize = function() { console.info(`__ENGRIPPA__.__serialize - Functionality not yet implemented.`) }
+    GRAMMAR.__deserialize = function() { console.info(`__ENGRIPPA__.__deserialize - Functionality not yet implemented.`) }
+    GRAMMAR.__patch = function() { console.info(`__ENGRIPPA__.__patch - Functionality not yet implemented.`) }
+    GRAMMAR.__extend = function() { console.info(`__ENGRIPPA__.__extend - Functionality not yet implemented.`) }
+    GRAMMAR.__includes = expand_lexeme({}, lexbuff.lhs, 0, lexbuff.rhs)
 
     return GRAMMAR
 
@@ -493,9 +494,7 @@ var test_case = [[{
     rhs: `{ 'id':qval }`
 }], ]
 
-var test = ["[", "'", "id", "'", ":", "val", ",", "'", "id", "'", ":", "'", "val", "'", ",", "'", "id", "'", ":", "val", "]"]
+var test = [`{ [ ' qid ' , ' qid ' , ' qid ' ] : qval , id : { ' qval ' , ' qval ' , ' qval ' } , [ ' qid ' , ' qid ' , ' qid ' ] : qval }`]
 
 var vm = new __ENGRIPPA__(test_case)
-vm.__exec(test)
-
-// INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]
+vm.__exec(test)// INSTRUCTION_WORD : [OPCODE:8][DATA FIELD:N]

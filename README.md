@@ -246,7 +246,7 @@ Dependancy graph: one-to-many
 ------------------------- */
     let tt000 = {
            lhs : `{ { a } : { b, c, d } }`,
-           rhs : `one-to-many`
+           rhs : `{ result : 'one-to-many' }`
     }
 ```
 

@@ -170,6 +170,28 @@ An automated trading example
     let vm = new __ENGRIPPA__( training_set00, training_set01 )
 ```
 
+A theorem proving example 
+
+```javascript 
+    let tt000 = {
+           lhs : `{ num : 2, op : '+', num : 2 }`,
+           rhs : `{ sum : { num : 4 } }`
+    }
+    
+    let tt001 = {
+           lhs : `{ num : 1, op : '+', num : 1 }`,
+           rhs : `{ sum : { num : 2 } }`
+    }
+    
+    let training_set = [ tt000,tt001 ]
+
+    let vm = new __ENGRIPPA__( training_set )
+    let tt_unk = `{ num : 1, op : '+', num : 1, op : '+', num : 1, op : '+', num : 1 }`
+    let result00 = vm.__exec( [ tt_unk ] ) 
+   
+    console.log( result00 ) // [`{ sum : { num : 4 } }`] //
+```
+
 To upgrade
 
 ```javascript 

@@ -307,7 +307,7 @@ A condensed multiplication table
      .
      
    let _tt075 = { 
-            lhs : `{ real : 0, mult : '*', real : 12 },
+            lhs : `{ real : 0, mult : '*', real : 12 }`,
             rhs : `{ product : 0 }`,
    }
 	

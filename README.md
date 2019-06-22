@@ -170,7 +170,7 @@ An automated trading example
     let vm = new __ENGRIPPA__( training_set00, training_set01 )
 ```
 
-A theorem proving example 
+A cross network inference example 
 
 ```javascript 
     let tt000 = {

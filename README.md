@@ -265,7 +265,7 @@ Dependancy graph: many-to-one
 
     let tt000 = {
             lhs : `{ { b, c, d } : { a } }`,
-            rhs : `many-to-one`
+            rhs : `{ result : 'many-to-one' }`
     }
 ```
 
@@ -284,7 +284,7 @@ Dependancy graph: many-to-one
 
     let tt000 = {
             lhs : `{ { a } : { b, c, d } : { 1 } : { d,e,f } }`,
-            rhs : `a-dependancy-graph-example`
+            rhs : `{ result : 'a-dependancy-graph-example' }`
     }
 ```
 
@@ -294,12 +294,12 @@ A condensed multiplication table
 /* -------------------------
 
    let _tt000 = { 
-            lhs : `{ num : 0, mult : '*', num : 0 },
+            lhs : `{ num : 0, mult : '*', num : 0 }`,
             rhs : `{ product : 0 }`,
    }
     
    let _tt001 = { 
-            lhs : `{ num : 1, mult : '*', num : 0 },
+            lhs : `{ num : 1, mult : '*', num : 0 }`,
             rhs : `{ product : 0 }`,
    }
     

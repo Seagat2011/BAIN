@@ -192,7 +192,7 @@ A cross network inference example
     console.log( result00 ) // [`{ sum : { num : 4 } }`] //
 ```
 
-An ontology match (cross training) example 
+An ontology match (cross training) example (same domain)
 
 ```javascript 
     let tt000 = {

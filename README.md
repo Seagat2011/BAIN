@@ -221,7 +221,7 @@ An ontology match (cross training) example (same domain)
     console.log( result00[0] ) // `{ outOf : { container : bowl } }` //
 ```
 
-An ontology match, cross training example (cross domain)
+An ontology match (cross training) example (cross domain)
 
 ```javascript
     let tt000 = {
@@ -247,8 +247,9 @@ An ontology match, cross training example (cross domain)
     let training_set1 = [ tt000 ]
     let training_set2 = [ tt001 ]
     let training_set3 = [ tt002 ]
+    let training_set4 = [ tt003 ]
 
-    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3  )
+    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3, training_set4 )
     let tt_unk = `{ act : tidy, object : grass }`
 
     let result00 = vm.__exec( [ tt_unk ] )

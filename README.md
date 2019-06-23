@@ -207,7 +207,7 @@ An ontology match (cross training) example (same domain)
 
     let tt002 = {
         lhs : `{ container : [ bowl, cup ] }`,
-        rhs : `{ size : [ large, small ] }`
+        rhs : `{ meal : [ large, small ] }`
     }
 
     let training_set1 = [ tt000 ]

@@ -256,46 +256,6 @@ An ontology match (cross training) example (cross domain)
     console.log( result00[0] ) // `{ act : mow, object : grass, tool : mower } }` //
 ```
 
-To upgrade
-
-```javascript 
-    let tt000 = {
-           lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
-           rhs : `{ msg : 'Hello' }`
-    }
-    
-    let tt001 = {
-           lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
-           rhs : `{ msg : 'Hello' }`
-    }
-    
-    let training_set1 = [ tt000 ]
-    let training_set2 = [ tt001 ]
-    
-    let vm = new __ENGRIPPA__( training_set1 )
-    vm.__extend( training_set2 )
-```
-
-To patch
-
-```javascript 
-    let tt000 = {
-           lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
-           rhs : `{ msg : 'Hello' }`
-    }
-    
-    let tt001 = {
-           lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
-           rhs : `{ msg : 'World' }`
-    }
-    
-    let training_set1 = [ tt000 ]
-    let training_set2 = [ tt001 ]
-    
-    let vm = new __ENGRIPPA__( training_set1 )
-    vm.__patch( training_set2,training_set1 )
-```
-
 Dependancy graph: one-to-many
 
 ```javascript
@@ -391,6 +351,46 @@ A condensed multiplication table
             lhs : `{ [ num, int, real ] : { 0 }, op : { '*', '/', '+', '-' }, [ num, int, real ] : { 0 } }`,
             rhs : `{ result : 0 }`
     }
+```
+
+To upgrade
+
+```javascript 
+    let tt000 = {
+           lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
+           rhs : `{ msg : 'Hello' }`
+    }
+    
+    let tt001 = {
+           lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
+           rhs : `{ msg : 'Hello' }`
+    }
+    
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+    
+    let vm = new __ENGRIPPA__( training_set1 )
+    vm.__extend( training_set2 )
+```
+
+To patch
+
+```javascript 
+    let tt000 = {
+           lhs : `[{ freq : 0x46, amp : 0x6, time_slice : 0x0 }, ... ]`,
+           rhs : `{ msg : 'Hello' }`
+    }
+    
+    let tt001 = {
+           lhs : `[{ freq : 0x55, amp : 0x7, time_slice : 0x0 }, ... ]`,
+           rhs : `{ msg : 'World' }`
+    }
+    
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+    
+    let vm = new __ENGRIPPA__( training_set1 )
+    vm.__patch( training_set2,training_set1 )
 ```
 
 To view a library

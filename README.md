@@ -200,7 +200,7 @@ An ontology match (cross training) example (same domain)
         rhs : `{ kindOf : apple }`
     }
 
-    let tt000 = {
+    let tt001 = {
         lhs : `{ kindOf : apple }`,
         rhs : `{ fruit : { Macintosh, 'Golden Delicious', 'Honey Crisp' } }`
     }
@@ -213,6 +213,35 @@ An ontology match (cross training) example (same domain)
 
     let result00 = vm.__exec( [ tt_unk ] )
     console.log( result00[0] ) // `{ kindOf : apple }` //
+```
+
+An ontology match, cross training example (cross domain)
+
+```javascript 
+    let tt000 = {
+        lhs : `{ act : eat }`,
+        rhs : `{ outOf : { container  : { cup, bowl } }`
+    }
+
+    let tt001 = {
+        lhs : `{ act : eat, meal : small }`,
+        rhs : `{ outOf : { container : cup } } }`
+    }
+
+    let tt002 = {
+        lhs : `{ container : [ bowl, cup ] }`,
+        rhs : `{ size : [ large, small ] }`
+    }
+
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+    let training_set3 = [ tt002 ]
+
+    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3  )
+    let tt_unk = `{ act : eat, meal : large }`
+
+    let result00 = vm.__exec( [ tt_unk ] )
+    console.log( result00[0] ) // `{ outOf : { container : bowl } }` //
 ```
 
 To upgrade

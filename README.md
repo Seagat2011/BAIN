@@ -196,29 +196,6 @@ An ontology match (cross training) example (same domain)
 
 ```javascript 
     let tt000 = {
-        lhs : `{ fruit : Macintosh }`,
-        rhs : `{ kindOf : apple }`
-    }
-
-    let tt001 = {
-        lhs : `{ kindOf : apple }`,
-        rhs : `{ fruit : { Macintosh, 'Golden Delicious', 'Honey Crisp' } }`
-    }
-
-    let training_set1 = [ tt000 ]
-    let training_set2 = [ tt001 ]
-
-    let vm = new __ENGRIPPA__( training_set1, training_set2 )
-    let tt_unk = `{ fruit : 'Honey Crisp' }`
-
-    let result00 = vm.__exec( [ tt_unk ] )
-    console.log( result00[0] ) // `{ kindOf : apple }` //
-```
-
-An ontology match, cross training example (cross domain)
-
-```javascript 
-    let tt000 = {
         lhs : `{ act : eat }`,
         rhs : `{ outOf : { container  : { cup, bowl } }`
     }
@@ -242,6 +219,40 @@ An ontology match, cross training example (cross domain)
 
     let result00 = vm.__exec( [ tt_unk ] )
     console.log( result00[0] ) // `{ outOf : { container : bowl } }` //
+```
+
+An ontology match, cross training example (cross domain)
+
+```javascript
+    let tt000 = {
+        lhs : `{ act : tidy, object : dish }`,
+        rhs : `{ act : wash, object : dish, tool : 'dish soap' }`
+    }
+
+    let tt001 = {
+        lhs : `{ act : tidy }`,
+        rhs : `{ act : { wash, mow, sweep } } }`
+    }
+
+    let tt002 = {
+        lhs : `{ object : tool }`,
+        rhs : `{ object : { 'dish soap', mower } }`
+    }
+
+    let tt003 = {
+        lhs : `{ object : mower }`,
+        rhs : `{ act : mow, object : grass }`
+    }
+
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+    let training_set3 = [ tt002 ]
+
+    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3  )
+    let tt_unk = `{ act : tidy, object : grass }`
+
+    let result00 = vm.__exec( [ tt_unk ] )
+    console.log( result00[0] ) // `{ act : mow, object : grass, tool : mower } }` //
 ```
 
 To upgrade

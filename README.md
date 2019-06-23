@@ -192,6 +192,29 @@ A cross network inference example
     console.log( result00 ) // [`{ sum : { num : 4 } }`] //
 ```
 
+An ontology match (cross training) example 
+
+```javascript 
+    let tt000 = {
+        lhs : `{ fruit : Macintosh }`,
+        rhs : `{ kindOf : apple }`
+    }
+
+    let tt000 = {
+        lhs : `{ kindOf : apple }`,
+        rhs : `{ fruit : { Macintosh, 'Golden Delicious', 'Honey Crisp' } }`
+    }
+
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+
+    let vm = new __ENGRIPPA__( training_set1, training_set2 )
+    let tt_unk = `{ fruit : 'Honey Crisp' }`
+
+    let result00 = vm.__exec( [ tt_unk ] )
+    console.log( result00[0] ) // `{ kindOf : apple }` //
+```
+
 To upgrade
 
 ```javascript 

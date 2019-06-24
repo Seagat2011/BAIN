@@ -170,92 +170,6 @@ An automated trading example
     let vm = new __ENGRIPPA__( training_set00, training_set01 )
 ```
 
-A cross network inference example 
-
-```javascript 
-    let tt000 = {
-           lhs : `{ num : 2, op : '+', num : 2 }`,
-           rhs : `{ sum : { num : 4 } }`
-    }
-    
-    let tt001 = {
-           lhs : `{ num : 1, op : '+', num : 1 }`,
-           rhs : `{ sum : { num : 2 } }`
-    }
-    
-    let training_set = [ tt000,tt001 ]
-
-    let vm = new __ENGRIPPA__( training_set )
-    let tt_unk = `{ num : 1, op : '+', num : 1, op : '+', num : 1, op : '+', num : 1 }`
-    let result00 = vm.__exec( [ tt_unk ] ) 
-   
-    console.log( result00 ) // [`{ sum : { num : 4 } }`] //
-```
-
-An ontology match (cross training) example (same domain)
-
-```javascript 
-    let tt000 = {
-        lhs : `{ act : eat }`,
-        rhs : `{ outOf : { container  : { cup, bowl } }`
-    }
-
-    let tt001 = {
-        lhs : `{ act : eat, meal : small }`,
-        rhs : `{ outOf : { container : cup } } }`
-    }
-
-    let tt002 = {
-        lhs : `{ container : [ bowl, cup ] }`,
-        rhs : `{ meal : [ large, small ] }`
-    }
-
-    let training_set1 = [ tt000 ]
-    let training_set2 = [ tt001 ]
-    let training_set3 = [ tt002 ]
-
-    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3  )
-    let tt_unk = `{ act : eat, meal : large }`
-
-    let result00 = vm.__exec( [ tt_unk ] )
-    console.log( result00[0] ) // `{ outOf : { container : bowl } }` //
-```
-
-An ontology match (cross training) example (cross domain)
-
-```javascript
-    let tt000 = {
-        lhs : `{ act : tidy, object : dish }`,
-        rhs : `{ act : wash, object : dish, tool : 'dish soap' }`
-    }
-
-    let tt001 = {
-        lhs : `{ act : tidy }`,
-        rhs : `{ act : { wash, mow, sweep } } }`
-    }
-
-    let tt002 = {
-        lhs : `{ object : tool }`,
-        rhs : `{ object : { 'dish soap', mower } }`
-    }
-
-    let tt003 = {
-        lhs : `{ object : mower }`,
-        rhs : `{ act : mow, object : grass }`
-    }
-
-    let training_set1 = [ tt000 ]
-    let training_set2 = [ tt001 ]
-    let training_set3 = [ tt002 ]
-    let training_set4 = [ tt003 ]
-
-    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3, training_set4 )
-    let tt_unk = `{ act : tidy, object : grass }`
-
-    let result00 = vm.__exec( [ tt_unk ] )
-    console.log( result00[0] ) // `{ act : mow, object : grass, tool : mower } }` //
-```
-
 Dependancy graph: one-to-many
 
 ```javascript
@@ -351,6 +265,92 @@ A condensed multiplication table
             lhs : `{ [ num, int, real ] : { 0 }, op : { '*', '/', '+', '-' }, [ num, int, real ] : { 0 } }`,
             rhs : `{ result : 0 }`
     }
+```
+
+A cross network inference example 
+
+```javascript 
+    let tt000 = {
+           lhs : `{ num : 2, op : '+', num : 2 }`,
+           rhs : `{ sum : { num : 4 } }`
+    }
+    
+    let tt001 = {
+           lhs : `{ num : 1, op : '+', num : 1 }`,
+           rhs : `{ sum : { num : 2 } }`
+    }
+    
+    let training_set = [ tt000,tt001 ]
+
+    let vm = new __ENGRIPPA__( training_set )
+    let tt_unk = `{ num : 1, op : '+', num : 1, op : '+', num : 1, op : '+', num : 1 }`
+    let result00 = vm.__exec( [ tt_unk ] ) 
+   
+    console.log( result00 ) // [`{ sum : { num : 4 } }`] //
+```
+
+An ontology match (cross training) example (same domain)
+
+```javascript 
+    let tt000 = {
+        lhs : `{ act : eat }`,
+        rhs : `{ outOf : { container  : { cup, bowl } }`
+    }
+
+    let tt001 = {
+        lhs : `{ act : eat, meal : small }`,
+        rhs : `{ outOf : { container : cup } } }`
+    }
+
+    let tt002 = {
+        lhs : `{ container : [ bowl, cup ] }`,
+        rhs : `{ meal : [ large, small ] }`
+    }
+
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+    let training_set3 = [ tt002 ]
+
+    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3  )
+    let tt_unk = `{ act : eat, meal : large }`
+
+    let result00 = vm.__exec( [ tt_unk ] )
+    console.log( result00[0] ) // `{ outOf : { container : bowl } }` //
+```
+
+An ontology match (cross training) example (cross domain)
+
+```javascript
+    let tt000 = {
+        lhs : `{ act : tidy, object : dish }`,
+        rhs : `{ act : wash, object : dish, tool : 'dish soap' }`
+    }
+
+    let tt001 = {
+        lhs : `{ act : tidy }`,
+        rhs : `{ act : { wash, mow, sweep } } }`
+    }
+
+    let tt002 = {
+        lhs : `{ object : tool }`,
+        rhs : `{ object : { 'dish soap', mower } }`
+    }
+
+    let tt003 = {
+        lhs : `{ object : mower }`,
+        rhs : `{ act : mow, object : grass }`
+    }
+
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+    let training_set3 = [ tt002 ]
+    let training_set4 = [ tt003 ]
+
+    let vm = new __ENGRIPPA__( training_set1, training_set2, training_set3, training_set4 )
+    let tt_unk = `{ act : tidy, object : grass }`
+
+    let result00 = vm.__exec( [ tt_unk ] )
+    console.log( result00[0] ) // `{ act : mow, object : grass, tool : mower } }` //
 ```
 
 To upgrade

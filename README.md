@@ -350,7 +350,7 @@ An ontology match (cross training) example (cross domain)
     let tt_unk = `{ act : tidy, object : grass }`
 
     let result00 = vm.__exec( [ tt_unk ] )
-    console.log( result00[0] ) // `{ act : mow, object : grass, tool : mower } }` //
+    console.log( result00[0] ) // `{ act : mow, object : grass, tool : mower }` //
 ```
 
 To upgrade

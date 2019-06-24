@@ -184,71 +184,23 @@ function __ENGRIPPA__(test_case) {
 
     // ---------------------------------------------------- SEMANTIC ANALYSIS ---------------------------------------------------- //
 
-    var semabuff = new __EGRIPP__()
-    var GRAMMAR
-    function __GRAMMAR__() {
-        var self = this
-        self.lhs = []
-        self.rhs = []
-        self.lhs.idx = 0
-        self.rhs.idx = 0
-    }
-    __GRAMMAR__.prototype = []
     Object.prototype.assert = function(v, o) {
         if (v == false) {
             console.info(`Scan aborted:`)
             throw Error(o.msg)
         }
     }
-    Object.prototype.add = function(u, j, k, i) {
-        var self = this;
-        (self.length < k + 1) && self.push({})
-        var src = self[k]
-        !(u in src) && (src[u] = {})
-        var srcu = src[u]
-        !(j in srcu) && (srcu[j] = (k == i) ? 'eos' : true)
-    }
     Object.prototype.forEachOwnElement = function(cb) {
         var self = this
         var idx = 0
-        for (var u in self) {
-            if (self.hasOwnProperty(u)) {
-                cb && (u = cb(u, self[u], self, idx++))
+        if(cb){
+            for (var u in self) {
+                if (self.hasOwnProperty(u)) {
+                    (self[u] = cb(self[u], u, self, idx++))
+                }
             }
         }
         return self
-    }
-    Object.prototype.next = function(w) {
-        var self = this
-        var idx = self.idx
-        var result = false
-        if (!self.tmp) {
-            var tmp = {}
-            self[0][w].forEachOwnElement((u,obj,me)=>{
-                tmp[u] = obj
-                return u
-            }
-            )
-            self.tmp = tmp
-        }
-        (w in self[idx]) || self.assert(false, {
-            msg: `Semantic Parse Error: unexpected token ' ${w} ' at index ${idx}`
-        })
-        var validStream = false
-        self[idx][w].forEachOwnElement((u,obj,me)=>{
-            (u in self.tmp) && (validStream = true)
-            return u
-        }
-        )
-        if (validStream) {
-            self.idx++
-            result = true
-        } else {
-            self.assert(false, {
-                msg: `Semantic Parse Error: unexpected token ' ${w} ' at index ${idx}`
-            })
-        }
-        return result
     }
     function expand_lexeme(g, u, i, v) {
         function expand(x, gg, k, ii, II, vv) {
@@ -277,17 +229,12 @@ function __ENGRIPPA__(test_case) {
         }
         return g
     }
-    lexbuff.lhs.map((w,idx,me)=>{
-        !GRAMMAR && (GRAMMAR = new __GRAMMAR__())
-        var i = w.length - 1
-        w.map((u,idy,too)=>{
-            GRAMMAR.lhs.add(u, idx, idy, i)
-            return u
-        }
-        )
-        return w
+    var semabuff = new __EGRIPP__()
+    function __GRAMMAR__() {
+        var self = this
     }
-    )
+    __GRAMMAR__.prototype = []
+    var GRAMMAR = new __GRAMMAR__()
     GRAMMAR.__LEXER__priv = function(tests) {
         var b = ''
         var result = []
@@ -323,25 +270,28 @@ function __ENGRIPPA__(test_case) {
         var result = [];
         m.map((test)=>{
             var II = test.length
-            var JJ = self.lhs.length;
-            (II <= JJ) || self.assert({
-                msg: `Semantic Parse Error: unexpected overall (extended) stream length. Implementation not available. Please update Engrippa.`
-            })
-            var __includes = self.__includes
-            while ((ii < II) && __includes[test[ii++]] ){
-                __includes = __includes[test[(ii-1)]]                 
-            }
-            if (ii == II) {
-                var str = __includes['eos'].join('')
-                console.info(str)
-                console.info('Semantic Engine - parse successfull.')
-                result.push(str)
-            } else {
+            try {
+                var __includes = self.__includes
+                while ((ii < II) && __includes[test[ii++]]) {
+                    __includes = __includes[test[(ii - 1)]]
+                }
+                if (ii == II) {
+                    var str = __includes['eos'].join('')
+                    console.info(str)
+                    console.info('Semantic Engine - parse successfull.')
+                    result.push(str)
+                } else {
+                    self.assert(false, {
+                        msg: `Semantic Parse Error: unexpected token ' ${test[(ii - 1)]} ' at index ${(ii - 1)}`
+                    })
+                }
+            } catch (e) {
                 self.assert(false, {
-                    msg: `Semantic Parse Error: unexpected token ' ${test[(ii-1)]} ' at index ${(ii-1)}`
+                    msg: e
                 })
             }
-             return test
+
+            return test
         }
         )
         return result

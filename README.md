@@ -207,7 +207,7 @@ Dependancy graph: many-to-one
     }
 ```
 
-Dependancy graph: many-to-one
+Dependancy graph example 
 
 ```javascript
 /* -----------------------------

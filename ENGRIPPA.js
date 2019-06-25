@@ -24,7 +24,7 @@ function __ENGRIPPA__(test_case) {
         var c = []
         var d = ''
         var e = []
-        u.lhs.split('').map((w)=>{
+        u.lhs.replace(/[\n\t]/g,'').split('').map((w)=>{
             if (w === ' ') {
                 if (b) {
                     c.push(b)
@@ -44,7 +44,7 @@ function __ENGRIPPA__(test_case) {
         )
         lexbuff.lhs.push(c)
         // RHS //
-        u.rhs.split('').map((w)=>{
+        u.rhs.replace(/[\n\t]/g,'').split('').map((w)=>{
             if (w === ' ') {
                 if (d) {
                     e.push(d)
@@ -240,7 +240,7 @@ function __ENGRIPPA__(test_case) {
         var result = []
         tests.map((u)=>{
             var test = [];
-            u.split('').map((w)=>{
+            u.replace(/[\n\t]/g,'').split('').map((w)=>{
                 if (w === ' ') {
                     if (b) {
                         test.push(b)
@@ -271,26 +271,21 @@ function __ENGRIPPA__(test_case) {
         m.map((test)=>{
             var II = test.length
             try {
+                var str = '{ an unexpected error occurred }'
                 var __includes = self.__includes
-                while ((ii < II) && __includes[test[ii++]]) {
-                    __includes = __includes[test[(ii - 1)]]
+                while ((ii < II) && __includes[test[ii]]) {
+                    __includes = __includes[test[ii++]]
                 }
                 if (ii == II) {
-                    var str = __includes['eos'].join('')
-                    console.info(str)
-                    console.info('Semantic Engine - parse successfull.')
-                    result.push(str)
+                    str = __includes['eos'].join('')
+                    console.info(`${str} - Parse successfull.`)
                 } else {
-                    self.assert(false, {
-                        msg: `Semantic Parse Error: unexpected token ' ${test[(ii - 1)]} ' at index ${(ii - 1)}`
-                    })
+                    str = `Error : unexpected token \\${test[ii]} at index ${ii}`
                 }
             } catch (e) {
-                self.assert(false, {
-                    msg: e
-                })
-            }
-
+                str = [e.message,e.stack].join('\n')
+            }                
+            result.push(str)
             return test
         }
         )

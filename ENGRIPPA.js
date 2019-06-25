@@ -1,3 +1,33 @@
+/* ----------------------------------------------------
+    AUTHOR
+        Seagat2011
+        https://fold.it/portal/user/199249
+
+    VERSION
+        Major.Minor.Bugfix.Patch
+        1.0.0.0
+
+    STYLEGUIDE
+        https://google.github.io/styleguide/jsguide.html
+
+    DESCRIPTION
+        Virtual Machine Based Artificial Intelligence Network
+
+    USAGE
+        let engine = new __ENGRIPPA__( [ {json training set...} ] ]) 
+        let result = engine.exec( [ {json training set...} ] ) // [ {...}, ...]
+        console.log( result[0] ) // [ {desired json output...} ] //
+
+    NOTES
+        All training sets must be separated in right hand side / left hand Side (rhs/lhs) assertions: 
+
+        var training_set = { 
+            lhs : { num : 0, times : `*`, num : 0 }, 
+            rhs : { product : 0 } 
+        }
+
+---------------------------------------------------- */
+
 function __ENGRIPPA__(test_case) {
 
     function __EGRIPP__() {

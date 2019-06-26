@@ -287,7 +287,7 @@ An ontology match (cross training) example (same domain)
 ```javascript 
     let tt000 = {
         lhs : `{ act : eat }`,
-        rhs : `{ outOf : { container  : { cup, bowl } }`
+        rhs : `{ outOf : { container  : { cup, bowl } } }`
     }
 
     let tt001 = {

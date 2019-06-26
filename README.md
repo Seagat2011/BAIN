@@ -461,13 +461,13 @@ To unload a library
     
     let vm = new __ENGRIPPA__( training_set1 )
     let f = vm.__serialize()
-    console.log( f ) // [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
+    console.log( f ) // [{ '__decompile' : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //
 ```
 
 To load a library
 
 ```javascript 
-    let f = [{ __decompile : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ]
+    let f = [{ '__decompile' : `let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ]
     let vm = new __ENGRIPPA__()
     vm.__deserialize(f)
     console.log( vm.__decompile() ) // [`let __0x0000 = { token : { freq : [ 0x46, 0x55 ] } }, let __0x0001 = { token : { amp : [ 0x6, 0x7 ] } }`, ... ] //

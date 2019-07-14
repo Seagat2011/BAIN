@@ -273,9 +273,10 @@ A cross network inference example
            rhs : `{ sum : { num : 2 } }`
     }
     
-    let training_set = [ tt000,tt001 ]
-
-    let vm = new __ENGRIPPA__( training_set )
+    let training_set1 = [ tt000 ]
+    let training_set2 = [ tt001 ]
+    
+    let vm = new __ENGRIPPA__( training_set1, training_set2 )
     let tt_unk = `{ num : 1, op : '+', num : 1, op : '+', num : 1, op : '+', num : 1 }`
     let result00 = vm.__exec( [ tt_unk ] ) 
    
